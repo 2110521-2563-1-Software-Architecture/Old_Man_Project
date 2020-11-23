@@ -34,7 +34,7 @@ class ClientLanding extends React.Component {
                                     activeClassName="ant-menu-item-selected"
                                     to="/client/edit-portfolio"
                                 >
-                                        Edit Portfolio
+                                        แก้ไข Portfolio
                                 </NavLink>
                             )}
                             { type === 1 && (
@@ -43,7 +43,7 @@ class ClientLanding extends React.Component {
                                     activeClassName="ant-menu-item-selected"
                                     to="/client/edit-profile"
                                 >
-                                        Edit Profile
+                                        แก้ไข Profile
                                 </NavLink>
                             )}
                             { type === 2 && (
@@ -52,7 +52,7 @@ class ClientLanding extends React.Component {
                                     activeClassName="ant-menu-item-selected"
                                     to="/client/favorites"
                                 >
-                                        Favorite Photographers
+                                        ช่างภาพคนโปรด
                                 </NavLink>
                             )}
                             <NavLink 
@@ -60,28 +60,28 @@ class ClientLanding extends React.Component {
                                 activeClassName="ant-menu-item-selected"
                                 to="/client/reservations"
                             >
-                                    My Reservations
+                                    การจองของฉัน
                             </NavLink>
                             <NavLink 
                                 className="ant-menu-item" 
                                 activeClassName="ant-menu-item-selected"
                                 to="/client/calendar"
                             >
-                                My Calendar
+                                ปฏิทินของฉัน
                             </NavLink>
                             <NavLink 
                                 className="ant-menu-item" 
                                 activeClassName="ant-menu-item-selected"
                                 to="/client/notifications"
                             >
-                                All Notifications
+                                การแจ้งเตือนทั้งหมด
                             </NavLink>
                             <NavLink 
                                 className="ant-menu-item" 
                                 activeClassName="ant-menu-item-selected"
                                 to="/client/edit"
                             >
-                                Personal Information
+                                ข้อมูลส่วนตัวทั่วไป
                             </NavLink>
                         </React.Fragment>
                     )}

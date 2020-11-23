@@ -42,7 +42,7 @@ class Favorites extends React.Component {
                         <div className="d-flex align-center justify-center" style={{ height: 400 }}>
                             <div style={{ textAlign: 'center' }}>
                                 <Icon type="heart" style={{ fontSize: 40 }} className="t-color-light mb-3"/>
-                                <p className="t-color-light">You do not have any favorite photographers.</p>
+                                <p className="t-color-light">คุณยังไม่มีช่างภาพที่ถูกใจ</p>
                             </div>
                         </div> 
                     )) : (
