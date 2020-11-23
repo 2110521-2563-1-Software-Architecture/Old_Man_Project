@@ -9,7 +9,12 @@ import Profile from "interfaces/profile";
 import Listing from "interfaces/listing"
 import ClientLanding from "interfaces/client";
 import SignUp from "interfaces/signinreg/SignUp";
+import Profileth from "interfacesth/profileth";
+import Listingth from "interfacesth/listingth"
+import ClientLandingth from "interfacesth/clientth";
+import SignUpth from "interfacesth/signinregth/SignUpth";
 import Error from "../components/Error";
+import NotFoundth from "../components/NotFoundth";
 import NotFound from "../components/NotFound";
 
 
@@ -25,6 +30,11 @@ class AppRouter extends React.Component {
                         <PublicRoute path="/profile/:username" component={Profile}/>
                         <PublicRoute path="/" component={Listing} exact/>
                         <Route path="/" component={NotFound}/>
+                        <PrivateRoute path="/clientth" component={ClientLandingth}/>
+                        <PublicRoute path="/signupth" component={SignUpth}/>
+                        <PublicRoute path="/profileth/:username" component={Profileth}/>
+                        <PublicRoute path="/th" component={Listingth} exact/>
+                        <Route path="/th" component={NotFoundth}/>
                     </Switch>
                 </Router>
             </React.Fragment>
