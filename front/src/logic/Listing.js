@@ -11,3 +11,4 @@ export const availableSorts = [{
     value: "price_des",
     label: "Price High to Low"
 }]
+

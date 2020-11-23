@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from "react-redux";
 import 'normalize.css/normalize.css';
-import './assets/index.css';
+import './style/index.less';
 import AppRouter from "./common/router/router";
 import store from "./common/store.js";
 import initHttp from "./common/http.js";
