@@ -85,11 +85,11 @@ class EditProfile extends React.Component {
             <div className="container mt-4 with-sidebar pl-4">
                 { currentClient && (
                     <React.Fragment>
-                        <h1>Edit Profile</h1>
+                        <h1>แก้ไข Profile</h1>
                         { success && 
                             <React.Fragment>
                                 <div className="success-banner">
-                                    <span>Your profile has been updated.</span>
+                                    <span>Profile ของคุณถูกอัพเดท</span>
                                 </div>
                                 <div className="pb-2"/>
                             </React.Fragment>
@@ -97,7 +97,7 @@ class EditProfile extends React.Component {
                         { error && 
                             <React.Fragment>
                                 <div className="error-banner">
-                                    <span>An error occurred. Please try again later.</span>
+                                    <span>มีข้อผิดพลาด โปรดลองลองอีกครั้ง</span>
                                 </div>
                                 <div className="pb-2"/>
                             </React.Fragment>
@@ -121,13 +121,13 @@ class EditProfile extends React.Component {
                                     className="mr-2"
                                     htmlType="submit" 
                                     disabled={hasErrors(getFieldsError())}
-                                >Confirm Edits</Button>
+                                >คอนเฟิมการแก้ไข</Button>
                                 <Button 
                                     type="secondary" 
                                     onClick={() => history.goBack()}
                                     className="mr-2"
                                     htmlType="button" 
-                                >Cancel</Button>
+                                >แคนเชิล</Button>
                             </div>
                         </div>      
                     </React.Fragment>

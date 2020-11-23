@@ -35,11 +35,11 @@ class Equipment extends React.Component {
         const { equipmentName } = this.state;
         return (
             <React.Fragment>
-                <h3>Equipment</h3>
+                <h3>อุปกรณ์</h3>
                 <Form className="d-flex">
                     <Form.Item className="mr-2 mb-0 full-width">
                         <Input
-                            placeholder="Equipment Name"
+                            placeholder="ชื่ออุปกรณ์"
                             type="text"
                             value={equipmentName}
                             onChange={(e) => this.setState({ equipmentName: e.target.value })}

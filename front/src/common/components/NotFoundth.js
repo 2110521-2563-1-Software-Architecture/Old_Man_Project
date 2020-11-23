@@ -18,9 +18,9 @@ const NotFoundth = () => (
         <Nav transparent={true} />
         <div className="container ma-0" style={{ textAlign: 'center' }}>
             <div className="hero-text mb-4">
-                <div className="header">Page Not Found</div>
+                <div className="header">ไม่พบ page นี้</div>
                 <div className="subheader" style={{ fontSize: 18, letterSpacing: 5 }}>
-                    The page you are looking for does not exist.
+                    เพจที่คุณต้องการหาไม่สามารถค้นพบ
                 </div>
             </div>
             <Link to="/">

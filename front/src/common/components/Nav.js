@@ -4,7 +4,7 @@ import { Button, Dropdown, Menu, Icon, Tag, Badge } from 'antd';
 import logo from "assets/logo.png";
 import { connect } from "react-redux";
 import { signOut } from "common/actions/auth";
-import history from "../interfacesth/listingth/node_modules/common/router/history";
+import history from "../interfaces/listing/node_modules/common/router/history";
 import SignInRegModal from "interfaces/signinreg/modal";
 import { receiveNotifications, getNotificationText, readNotifications, countUnread } from "logic/Notifications";
 

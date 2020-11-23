@@ -6,37 +6,37 @@ import TimeSlot from "./TimeSlot";
 import { timeLabels } from "logic/Calendar";
 
 const days = [{
-    label: "Monday",
+    label: "วันจันทร์",
     value: "MONDAY",
     color: "gold",
     index: 0
 },{
-    label: "Tuesday",
+    label: "วันอังคาร",
     value: "TUESDAY",
     color: "magenta",
     index: 1
 },{
-    label: "Wednesday",
+    label: "วันพุธ",
     value: "WEDNESDAY",
     color: "green",
     index: 2
 },{
-    label: "Thursday",
+    label: "วันพฤหัสบดี",
     value: "THURSDAY",
     color: "orange",
     index: 3
 },{
-    label: "Friday",
+    label: "วันศุกร์",
     value: "FRIDAY",
     color: "blue",
     index: 4
 },{
-    label: "Saturday",
+    label: "วันเสาร์",
     value: "SATURDAY",
     color: "purple",
     index: 5
 },{
-    label: "Sunday",
+    label: "วันอาทิตย์",
     value: "SUNDAY",
     color: "volcano",
     index: 6
@@ -161,7 +161,7 @@ class AvailTimes extends React.Component {
                                 {
                                     showAdd[e.value] || (
                                         <Button className="mb-2" onClick={() => this.toggleAdd(e.value)}>
-                                            Add Available Time
+                                            เพิ่มเวลาที่ว่าง
                                             <Icon type="plus" />
                                         </Button>
                                     )

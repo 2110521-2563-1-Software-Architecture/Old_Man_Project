@@ -149,11 +149,11 @@ class Edit extends React.Component {
                                     type="primary" 
                                     className="mr-2"
                                     htmlType="button" 
-                                >Edit Password</Button>
+                                >แก้ไขพาสเวิด</Button>
                             </Link>
                         </Form.Item>
-                        <h3>Contact Information</h3>
-                        <label>Phone Number</label>
+                        <h3>ช่องทางการติดต่อ</h3>
+                        <label>เบอร์โทรศัพท์</label>
                         <Form.Item 
                             validateStatus={phoneError ? 'error' : ''} 
                             help={phoneError || ''}
@@ -170,10 +170,10 @@ class Edit extends React.Component {
                                 />,
                             )}
                         </Form.Item>
-                        <h3>Personal Information</h3>
+                        <h3>ข้อมูลส่วนบุคคล</h3>
                         <div className="d-flex">
                             <div className="mr-1 full-width">
-                                <label>First Name</label>
+                                <label>ชื่อ</label>
                                 <Form.Item 
                                     validateStatus={firstNameError ? 'error' : ''} 
                                     help={firstNameError || ''}
@@ -181,12 +181,12 @@ class Edit extends React.Component {
                                 >
                                     {getFieldDecorator('firstName', {
                                         rules: [
-                                            { required: true,message: 'This field is required.' },
+                                            { required: true,message: 'โปรดใส่ข้อมูล' },
                                         ],
                                         initialValue: firstName
                                     })(
                                         <Input
-                                            placeholder="First Name"
+                                            placeholder="ชื่อ"
                                             type="text"
                                         />,
                                     )}
@@ -195,18 +195,18 @@ class Edit extends React.Component {
                             <div className="ml-1 full-width">
                                 <label>Last Name</label>    
                                 <Form.Item 
-                                    validateStatus={lastNameError ? 'error' : ''} 
+                                    validateStatus={lastNameError ? 'เกิดข้อผิดพลาด' : ''} 
                                     help={lastNameError || ''}
                                     className="full-width"
                                 >
-                                    {getFieldDecorator('lastName', {
+                                    {getFieldDecorator('นามสกุล', {
                                         rules: [
-                                            { required: true,message: 'This field is required.' },
+                                            { required: true,message: 'โปรดใส่ข้อมูล' },
                                         ],
                                         initialValue: lastName
                                     })(
                                         <Input
-                                            placeholder="Last Name"
+                                            placeholder="นามสกุล"
                                             type="text"
                                         />,
                                     )}
@@ -215,12 +215,12 @@ class Edit extends React.Component {
                         </div>
                         <label>Social Security Number</label>
                         <Form.Item 
-                            validateStatus={(ssnError || ssnLengthError) ? 'error' : ''} 
-                            help={ssnError || (ssnLengthError && "SSN must contain exactly 13 numbers.") || ''}
+                            validateStatus={(ssnError || ssnLengthError) ? 'เกิดข้อผิลพลาด' : ''} 
+                            help={ssnError || (ssnLengthError && "SSN ควรจะยาว 13 ตัวอักษร") || ''}
                         >
                             {getFieldDecorator('ssn', {
                                 rules: [
-                                    { required: true, message: 'This field is required.' }
+                                    { required: true, message: 'โปรดใส่ข้อมูล' }
                                 ],
                                 initialValue: ssn
                             })(

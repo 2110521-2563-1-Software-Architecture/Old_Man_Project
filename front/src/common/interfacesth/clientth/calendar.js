@@ -78,13 +78,13 @@ class UserCalendar extends React.Component {
                                 e.photoshoot_time ? (
                                     <b>{timeLabels[e.photoshoot_time]},</b>
                                 ) : (
-                                    <b>Complete Photos,</b>
+                                    <b>รูปภาพเสร็จสิ้น, </b>
                                 )
                             }<br/>
                             { currentClient.type === 1 ? (
-                                <span>Customer: <b>{e.customer}</b></span>
+                                <span>ลูกค้า: <b>{e.customer}</b></span>
                             ) : (
-                                <span>Photographer: <b>{e.photographer}</b></span>
+                                <span>ช่างภาพ: <b>{e.photographer}</b></span>
                             )}
                         </Tag>
                     </Link>
@@ -96,8 +96,8 @@ class UserCalendar extends React.Component {
         const { currentClient, mappedJobs } = this.state;
         return (
             <div className="container mt-4 with-sidebar pl-4">
-                <h1 className="mb-2">My Calendar</h1>
-                <p className="t-color-light">Only paid and active jobs are shown.</p>
+                <h1 className="mb-2">ปฏิทินของฉัน</h1>
+                <p className="t-color-light">มีเพียงงานที่จ่ายและสามารถใช้งานได้เท่านั้นที่แสดงผล</p>
                 { ( currentClient && mappedJobs )&& (
                      <div className="calendar-wrapper">
                         <div className="calendar-container">
