@@ -55,6 +55,7 @@
   "devDependencies": {
     "cypress-file-upload": "^4.0.6",
     "cypress-multi-reporters": "^1.2.4",
+    "less-loader": "^7.1.0",
     "react-app-rewired": "^2.1.5"
   }
 }
