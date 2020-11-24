@@ -137,7 +137,7 @@ class Reservations extends React.Component {
                             ))}
                         </Menu>
                         )} trigger={['click']}>
-                        <Button shape="round">See Times</Button>
+                        <Button shape="round">ดูเวลา</Button>
                     </Dropdown>
                 )
             }
@@ -146,7 +146,7 @@ class Reservations extends React.Component {
             dataIndex: 'job_total_price',
             key: 'job_total_price',
             render: (e) => {
-                return <span>{e}THB</span>
+                return <span>{e} บาท</span>
             }
         },{
             title: 'สถานะ',
@@ -174,7 +174,7 @@ class Reservations extends React.Component {
                 return (
                     <Link to={`/client/reservations/${id}`}>
                         <Button shape="round">
-                            Details
+                            รายละเอียด
                             <Icon type="right"/>
                         </Button>
                     </Link>
@@ -326,7 +326,7 @@ class Reservations extends React.Component {
                                 ยกเลิก
                             </Button>
                         ) : (
-                            <span>You cannot cancel your job right now.</span>
+                            <span>คุณไม่สามารถยกเลิกงานได้ตอนนี้</span>
                         )
                     );
                     case "PROCESSING": return (<span/>);
@@ -350,13 +350,13 @@ class Reservations extends React.Component {
                                     selectedJob: record
                                 })}
                             >
-                                Write a Review
+                                เขียนรีวิว
                             </Button>
                         </div>
                     );
                     case "REVIEWED": return (
                         <a href={record.job_url} target="_blank" rel="noopener noreferrer">
-                            <Button shape="round" type="primary" className="ma-1">See Photos</Button>
+                            <Button shape="round" type="primary" className="ma-1">ดูภาพ</Button>
                         </a>
                     );
                     default: return <span/>

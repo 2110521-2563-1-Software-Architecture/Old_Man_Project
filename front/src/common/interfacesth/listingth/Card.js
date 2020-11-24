@@ -109,7 +109,7 @@ class PhotographerCard extends React.Component {
                     { user.photographer_equipment.length > 0 && (
                         <div>
                             <div className="secondary-label mt-2 pl-0">
-                                Equipment
+                                อุปกรณ์
                             </div>
                             <p className="mb-0">
                                 <span>{this.mapEquipment(user.photographer_equipment)}</span>

@@ -116,10 +116,10 @@ class JobCalendar extends React.Component {
                                     }
                                 })}
                             >
-                                <b>Selected</b><br/>
+                                <b>เลือก</b><br/>
                                 <span className="d-block">
                                     {timeLabels[selectedTimes[date].avail_time]},{' '}
-                                    Price: {selectedTimes[date].photographer_price}
+                                    ราคา: {selectedTimes[date].photographer_price}
                                 </span>
                             </Tag>
                         </Tooltip>
@@ -147,7 +147,7 @@ class JobCalendar extends React.Component {
                                 <Tag 
                                     style={{ whiteSpace: 'normal', cursor: 'pointer' }}
                                 >
-                                    <b>Available</b>
+                                    <b>ว่าง</b>
                                     {
                                         listData.content.map((e,i) => {
                                             return (
@@ -171,7 +171,7 @@ class JobCalendar extends React.Component {
                         color="green"
                         style={{ whiteSpace: 'normal' }} 
                     >
-                        <b>Available</b><br/>
+                        <b>ว่าง</b><br/>
                         {
                             listData.content.map((e,i) => {
                                 return (
@@ -256,7 +256,7 @@ class JobCalendar extends React.Component {
                 { enableReserve && (
                     <div className="mb-2" style={{ textAlign: 'center' }}>
                         <span className="secondary-label" style={{ letterSpacing: 2, fontWeight: 'normal' }}>
-                            Click the available times on the calendar to start reserving.
+                            เลือกเวลาที่ว่างบนปฏิทินเื่อเริ่มการจอง
                         </span>
                         <Button 
                             type="primary" 
@@ -265,7 +265,7 @@ class JobCalendar extends React.Component {
                             onClick={() => this.setState({ showReserveModal: true })}
                             disabled={!Object.keys(selectedTimes).length > 0}
                         >
-                            PROCEED
+                            กำลังดำเนินการ
                             <Icon type="caret-right"/>
                         </Button>
                     </div>
