@@ -135,12 +135,12 @@ class SignUp extends React.Component {
                         <div className="pa-4">
                             <h1>Sign Up</h1>
                             <Form>
-                                <h3>Account Information</h3>
+                                <h3>รายละเอีดยอข้อมูล</h3>
                                 <label>Username</label>
                                 <Form.Item validateStatus={usernameError ? 'error' : ''} help={usernameError || ''}>
                                     {getFieldDecorator('username', {
                                         rules: [
-                                            { required: true,message: 'This field is required.' },
+                                            { required: true,message: 'โปรดใส่ข้อมูล' },
                                         ],
                                     })(
                                         <Input
@@ -149,110 +149,110 @@ class SignUp extends React.Component {
                                         />,
                                     )}
                                 </Form.Item>
-                                <label>Email</label>
+                                <label>อีเมล</label>
                                 <Form.Item validateStatus={emailError ? 'error' : ''} help={emailError || ''}>
                                     {getFieldDecorator('email', {
                                         rules: [
-                                            { required: true,message: 'This field is required.' },
+                                            { required: true,message: 'โปรดใส่ข้อมูล' },
                                         ],
                                     })(
                                         <Input
-                                            placeholder="Email"
+                                            placeholder="อีเมล"
                                             type="email"
                                         />,
                                     )}
                                 </Form.Item>
-                                <label>Password</label>
+                                <label>รหัสผ่าน</label>
                                 <Form.Item validateStatus={passwordError ? 'error' : ''} help={passwordError || ''}>
                                     {getFieldDecorator('password', {
-                                        rules: [{ required: true, message: 'This field is required.' }],
+                                        rules: [{ required: true, message: 'โปรดใส่ข้อมูล' }],
                                     })(
                                         <Input
-                                            placeholder="Password"
+                                            placeholder="รหัสผ่าน"
                                             type="password"
                                         />,
                                     )}
                                 </Form.Item>
-                                <label>Type</label>
+                                <label>เลือกชนิด</label>
                                 <Form.Item validateStatus={typeError ? 'error' : ''} help={typeError || ''}>
-                                    {getFieldDecorator('type',{rules: [{ required: true , message: 'This field is required.'}]})(
+                                    {getFieldDecorator('type',{rules: [{ required: true , message: 'โปรดใส่ข้อมูล'}]})(
                                         <Select placeholder="Type">
-                                            <Option value={1}>Photographer</Option>
-                                            <Option value={2}>Customer</Option>
+                                            <Option value={1}>ช่างภาพ</Option>
+                                            <Option value={2}>ลูกค้า</Option>
                                         </Select>
                                     )}
                                 </Form.Item>
-                                <h3>Contact Information</h3>
-                                <label>Phone Number</label>
+                                <h3>ช่องทางการติดต่อ</h3>
+                                <label>หมายเลขโทรศัพท์</label>
                                 <Form.Item 
                                     validateStatus={phoneError ? 'error' : ''} 
                                     help={phoneError || ''}
                                 >
                                     {getFieldDecorator('phone', {
                                         rules: [
-                                            { required: true,message: 'This field is required.' },
+                                            { required: true,message: 'โปรดใส่ข้อมูล' },
                                         ]
                                     })(
                                         <Input
-                                            placeholder="Phone Number"
+                                            placeholder="หมายเลขโทรศัพท์"
                                             type="phone"
                                         />,
                                     )}
                                 </Form.Item>
-                                <h3>Personal Information</h3>
+                                <h3>ข้อมูลส่วนตัว</h3>
                                 <div className="d-flex">
                                     <div className="mr-1 full-width">
-                                        <label>First Name</label>
+                                        <label>ชื่อ</label>
                                         <Form.Item validateStatus={firstNameError ? 'error' : ''} help={firstNameError || ''}>
                                             {getFieldDecorator('firstName', {
                                                 rules: [
-                                                    { required: true,message: 'This field is required.' },
+                                                    { required: true,message: 'โปรดใส่ข้อมูล' },
                                                 ],
                                             })(
                                                 <Input
-                                                    placeholder="First Name"
+                                                    placeholder="ชืิ่อ"
                                                     type="text"
                                                 />,
                                             )}
                                         </Form.Item>
                                     </div>
                                     <div className="mr-1 full-width">
-                                        <label>Last Name</label>
+                                        <label>นามสกุล</label>
                                         <Form.Item validateStatus={lastNameError ? 'error' : ''} help={lastNameError || ''}>
                                             {getFieldDecorator('lastName', {
                                                 rules: [
-                                                    { required: true,message: 'This field is required.' },
+                                                    { required: true,message: 'โปรดใส่ข้อมูล' },
                                                 ],
                                             })(
                                                 <Input
-                                                    placeholder="Last Name"
+                                                    placeholder="นามสกุล"
                                                     type="text"
                                                 />,
                                             )}
                                         </Form.Item>
                                     </div>
                                 </div>
-                                <label>Social Security Number</label>
+                                <label>กรอกรหัสบัตรประชาชน</label>
                                 <Form.Item 
                                     validateStatus={(ssnError || ssnLengthError) ? 'error' : ''} 
-                                    help={ssnError || (ssnLengthError && "SSN must contain exactly 13 numbers.") || ''}
+                                    help={ssnError || (ssnLengthError && "รหัสบัตรประชาชนควรเป็น 13 หลัก") || ''}
                                 >
                                     {getFieldDecorator('ssn', {
                                         rules: [
-                                            { required: true,message: 'This field is required.' },
+                                            { required: true,message: 'โปรดใส่ข้อมูล' },
                                         ],
                                     })(
                                         <Input
-                                            placeholder="Social Security Number"
+                                            placeholder="รหัสบัตรประชาชน"
                                             type="number"
                                             maxLength={13}
                                         />,
                                     )}
                                 </Form.Item>
-                                <h3>Payment Information</h3>
+                                <h3>ข้อมูลการจ่ายเงิน</h3>
                                 <div className="d-flex">
                                     <div className="mr-1 full-width">
-                                        <label>Bank Account Number</label>
+                                        <label>เลขบัญชี</label>
                                         <Form.Item 
                                             validateStatus={bankAccountNumberError ? 'error' : ''} 
                                             help={bankAccountNumberError || ''}
@@ -260,18 +260,18 @@ class SignUp extends React.Component {
                                         >
                                             {getFieldDecorator('bankAccountNumber', {
                                                 rules: [
-                                                    { required: true,message: 'This field is required.' },
+                                                    { required: true,message: 'โปรดใส่ข้อมูล' },
                                                 ]
                                             })(
                                                 <Input
-                                                    placeholder="Account Number"
+                                                    placeholder="เลขบัญชี"
                                                     type="text"
                                                 />,
                                             )}
                                         </Form.Item>
                                     </div>
                                     <div className="ml-1 full-width">
-                                        <label>Bank Name</label>
+                                        <label>ชื่อธนาคาร</label>
                                         <Form.Item 
                                             validateStatus={bankNameError ? 'error' : ''} 
                                             help={bankNameError || ''}
@@ -279,11 +279,11 @@ class SignUp extends React.Component {
                                         >
                                             {getFieldDecorator('bankName', {
                                                 rules: [
-                                                    { required: true,message: 'This field is required.' },
+                                                    { required: true,message: 'โปรดใส่ข้อมูล' },
                                                 ]
                                             })(
                                                 <Input
-                                                    placeholder="Bank Name"
+                                                    placeholder="ชื่อธนาคาร"
                                                     type="text"
                                                 />,
                                             )}
@@ -291,18 +291,18 @@ class SignUp extends React.Component {
                                     </div>
                                 </div>
                                 <div className="mr-1">
-                                    <label>Bank Account Name</label>
+                                    <label>ชื่อเจ้าของบัญชี</label>
                                     <Form.Item 
                                         validateStatus={bankAccountNameError ? 'error' : ''} 
                                         help={bankAccountNameError || ''}
                                     >
                                         {getFieldDecorator('bankAccountName', {
                                             rules: [
-                                                { required: true,message: 'This field is required.' },
+                                                { required: true,message: 'โปรดใส่ข้อมูล' },
                                             ]
                                         })(
                                             <Input
-                                                placeholder="Account Name"
+                                                placeholder="ชื่อเจ้าของบัญชี"
                                                 type="text"
                                             />,
                                         )}
@@ -315,7 +315,7 @@ class SignUp extends React.Component {
                                         className="mr-2"
                                         htmlType="submit" 
                                         disabled={hasErrors(getFieldsError())}
-                                    >Sign Up</Button>
+                                    >ลงทะเบียน</Button>
                                 </Form.Item>
                             </Form>
                         </div>

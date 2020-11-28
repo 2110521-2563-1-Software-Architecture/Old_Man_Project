@@ -28,7 +28,7 @@ const columns = [{
     render: job_id => {
         return <Link to={`/client/reservations/${job_id}`}>
             <Button shape="round">
-                Reservation Details 
+                รายละเอียดการจอง 
                 <Icon type="right"/>
             </Button>
         </Link>
@@ -51,7 +51,7 @@ class Notifications extends React.Component {
         const { notifications } = this.state;
         return (
             <div className="container mt-4 with-sidebar pl-4">
-                <h1>My Notifications</h1>
+                <h1>การแจ้งเตือนของฉัน</h1>
                 { notifications.length >= 0 && (
                     <Table dataSource={notifications} columns={columns} />
                 )}

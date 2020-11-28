@@ -231,10 +231,10 @@ class Edit extends React.Component {
                                 />,
                             )}
                         </Form.Item>
-                        <h3>Payment Information</h3>
+                        <h3>ข้อมูลการจ่ายเงิน</h3>
                         <div className="d-flex">
                             <div className="mr-1 full-width">
-                                <label>Bank Account Number</label>
+                                <label>เลขบัญชี</label>
                                 <Form.Item 
                                     validateStatus={bankAccountNumberError ? 'error' : ''} 
                                     help={bankAccountNumberError || ''}
@@ -242,12 +242,12 @@ class Edit extends React.Component {
                                 >
                                     {getFieldDecorator('bankAccountNumber', {
                                         rules: [
-                                            { required: true,message: 'This field is required.' },
+                                            { required: true,message: 'โปรดใส่ข้อมูล' },
                                         ],
                                         initialValue: bankAccountNumber
                                     })(
                                         <Input
-                                            placeholder="Account Number"
+                                            placeholder="เลขบัญชี"
                                             type="text"
                                         />,
                                     )}
@@ -262,12 +262,12 @@ class Edit extends React.Component {
                                 >
                                     {getFieldDecorator('bankName', {
                                         rules: [
-                                            { required: true,message: 'This field is required.' },
+                                            { required: true,message: 'โปรดใส่ข้อมูล' },
                                         ],
                                         initialValue: bankName
                                     })(
                                         <Input
-                                            placeholder="Bank Name"
+                                            placeholder="ชื่อธนาคาร"
                                             type="text"
                                         />,
                                     )}
@@ -275,19 +275,19 @@ class Edit extends React.Component {
                             </div>
                         </div>
                         <div className="mr-1">
-                            <label>Bank Account Name</label>
+                            <label>ชื่อบัญชี</label>
                             <Form.Item 
                                 validateStatus={bankAccountNameError ? 'error' : ''} 
                                 help={bankAccountNameError || ''}
                             >
                                 {getFieldDecorator('bankAccountName', {
                                     rules: [
-                                        { required: true,message: 'This field is required.' },
+                                        { required: true,message: 'โปรดใส่ข้อมูล' },
                                     ],
                                     initialValue: bankAccountName
                                 })(
                                     <Input
-                                        placeholder="Account Number"
+                                        placeholder="เลขบัญชี"
                                         type="text"
                                     />,
                                 )}
@@ -301,7 +301,7 @@ class Edit extends React.Component {
                                     className="mr-2"
                                     htmlType="submit" 
                                     disabled={hasErrors(getFieldsError())}
-                                >Confirm Edits</Button>
+                                >คอนเฟิมการแก้ไข</Button>
                                 <Button 
                                     type="secondary" 
                                     onClick={() => {
@@ -310,7 +310,7 @@ class Edit extends React.Component {
                                     }}
                                     className="mr-2"
                                     htmlType="button" 
-                                >Cancel</Button>
+                                >ยกเลิก</Button>
                             </div>
                         </Form.Item>
                     </Form>

@@ -40,10 +40,10 @@ class JobDetails extends React.Component {
                 { currentJob && (
                     <React.Fragment>
                         <div className="mb-4">
-                            <h1 className="mr-3 mb-0">Reservation details</h1>
+                            <h1 className="mr-3 mb-0">รายละเอียดการจอง</h1>
                             <Button type="link" onClick={() => window.history.back()}>
                                 <Icon type="left"/>
-                                Back
+                                กลับ
                             </Button>
                         </div>
                         <Content label="Title" content={currentJob.job_title}/>
@@ -51,11 +51,11 @@ class JobDetails extends React.Component {
                             label="Status" 
                             content={`${statusLabels[currentJob.job_status]} ${
                                 (currentJob.job_status === "DECLINED" && getCurrentClient().type === 2) ?
-                                "(Your reservation has been declined by the photographer)" : ""
+                                "(การจองของคุณถูกปฏิเสธโดยช่างภาพ)" : ""
                             }`}
                         />
                         <Content label={ 
-                            getCurrentClient().type === 1 ? "Customer" : "Photographer"
+                            getCurrentClient().type === 1 ? "ลูกค้า" : "ช่างภาพ"
                         } content={
                             getCurrentClient().type === 1 ? (
                                 `${currentJob.job_customer.profile.user.username}${' '} 
@@ -65,11 +65,11 @@ class JobDetails extends React.Component {
                                 (${currentJob.job_photographer.profile.user.first_name} ${currentJob.job_photographer.profile.user.last_name})`
                             )
                         }/>
-                        <Content label="Location" content={currentJob.job_location} />
-                        <Content label="Style" content={styleLabels[currentJob.job_style]} />
+                        <Content label="สถานที่" content={currentJob.job_location} />
+                        <Content label="สไตล์" content={styleLabels[currentJob.job_style]} />
                         <Content 
                             label={
-                                getCurrentClient().type === 1 ? "Customer's Phone" : "Photographer's Phone"
+                                getCurrentClient().type === 1 ? "เบอร์โทรลูกค้า" : "เบอร์โทรช่างภาพ"
                             } 
                             content={
                                 showContactStatuses.includes(currentJob.job_status) ? (
@@ -79,7 +79,7 @@ class JobDetails extends React.Component {
                                         currentJob.job_photographer.profile.phone
                                     )
                                 ) : (
-                                    "Phone number is displayed only when the job is paid and not cancelled."
+                                    "เบอร์โทรจะแสดงผลได้เมื่องานนั้นได้ถูกจ่ายเงินและยังไม่ถูกยกเลิก"
                                 )
                             }
                             contentClass={
@@ -88,7 +88,7 @@ class JobDetails extends React.Component {
                         />
                         <Content 
                             label={
-                                getCurrentClient().type === 1 ? "Customer's Email" : "Photographer's Email"
+                                getCurrentClient().type === 1 ? "อีเมลลูกค้า" : "อีเมลช่างภาพ"
                             } 
                             content={
                                 showContactStatuses.includes(currentJob.job_status) ? (
@@ -98,7 +98,7 @@ class JobDetails extends React.Component {
                                         currentJob.job_photographer.profile.user.email
                                     )
                                 ) : (
-                                    "Email is displayed only when the job is paid and not cancelled."
+                                    "อีเมลจะแสดงผลได้เมื่องานนั้นได้ถูกจ่ายเงินและยังไม่ถูกยกเลิก"
                                 )
                             }
                             contentClass={
@@ -106,12 +106,12 @@ class JobDetails extends React.Component {
                             }
                         />
                         <div className="mb-3">
-                            <b>Reservation Times and Prices</b><br/>
+                            <b>เวลาและราคาการจอง</b><br/>
                             <ul>
                                 {currentJob.job_reservation.map((e,i) => (
                                     <li className="mb-1" key={"job_time" + i}>
                                         <span>{formatDate(e.photoshoot_date)}, {' '}
-                                        {timeLabels[e.job_avail_time.avail_time]}: {e.job_avail_time.photographer_price}THB</span>
+                                        {timeLabels[e.job_avail_time.avail_time]}: {e.job_avail_time.photographer_price}บาท</span>
                                     </li>
                                 ))}
                             </ul>
@@ -120,43 +120,43 @@ class JobDetails extends React.Component {
                         <Content label="Deposit" content={`${calculateDepositPrice(currentJob.job_total_price)}THB`} />
                         <Content label="Expected Complete Date" content={formatDate(currentJob.job_expected_complete_date)} />
                         <div className="mb-3">
-                            <b className="d-block mb-1">Job Description</b>
+                            <b className="d-block mb-1">รายละเอียดงาน</b>
                             <span 
                                 className={`${currentJob.job_description && currentJob.job_description !== "" ? "" : "t-color-light"}`}
                             >
-                                {currentJob.job_description && currentJob.job_description !== "" ? currentJob.job_description : "No Description Provided"}
+                                {currentJob.job_description && currentJob.job_description !== "" ? currentJob.job_description : "ไม่มีรายละเอียดงาน"}
                             </span>
                         </div>
                         <div className="mb-3">
-                            <b className="d-block mb-1">Special Requirements</b>
+                            <b className="d-block mb-1">ความต้องการเพิ่มเติม</b>
                             <span 
                                 className={`${currentJob.job_special_requirement && currentJob.job_special_requirement !== "" ? "" : "t-color-light"}`}
                             >
-                                {currentJob.job_special_requirement && currentJob.job_special_requirement !== "" ? currentJob.job_special_requirement : "None Provided"}
+                                {currentJob.job_special_requirement && currentJob.job_special_requirement !== "" ? currentJob.job_special_requirement : "ไม่มีรายละเอียดงานเพิ่มเติม"}
                             </span>
                         </div>
                         <div className="mb-3">
-                            <b className="d-block mb-2">Photos</b>
+                            <b className="d-block mb-2">รูปภาพ</b>
                             {
                                 getCurrentClient().type === 1 ? (
                                     (currentJob.job_status === "COMPLETED" || currentJob.job_status === "CLOSED") ? (
                                         <a href={currentJob.job_url} target="_blank" rel="noopener noreferrer">
                                             <Button type="primary" shape="round">
-                                                See Photos
+                                                ดูรูปภาพ
                                             </Button>
                                         </a>
-                                    ) : ( <span className="t-color-light">Not Available.</span> )
+                                    ) : ( <span className="t-color-light">ไม่มีรูปภาพแสดงผล</span> )
                                 ) : (
                                     (currentJob.job_status === "CLOSED") ? (
                                         <a href={currentJob.job_url} target="_blank" rel="noopener noreferrer">
                                             <Button type="primary" shape="round" className="mt-2">
-                                                See Photos
+                                                ดูรูปภาพ
                                             </Button>
                                         </a>
                                     ) : ( <span className="t-color-light">
                                         {(currentJob.job_status ==="COMPLETED") 
-                                        ? "You haven't paid the full price for your job. Please make the payment to see photos."
-                                        : "Not Available."}
+                                        ? "ถ้าหากคุณยังไม่ได้จ่ายเงินทั้งหมด โปรดจ่ายเงินเพื่อดูรูปที่ต้องการแสดงผล"
+                                        : "ไม่มีการแสดงผล"}
                                     </span> )
                                 )
                             }

@@ -78,14 +78,14 @@ class Reservations extends React.Component {
         const paid = record.job_status === "PAID";
         let content = "";
         if (paid) {
-            content = userType === 2 ? "Your paid deposit will not be refunded." : "The deposit will be refunded to the customer."
+            content = userType === 2 ? "การจ่ายเงินจะไม่มีการคืนเงิน" : "การจ่ายเงินจะถูกปฏิเสธโดยลูกค้า"
         } else {
             content = userType === 2 ? 
-                "You will need to make a reservation again if you change your mind." : 
-                "Are you sure to cancel this job?"
+                "คุณจำเป็นต้องเปลี่ยนการจองอีกครั้งถ้าเปลี่ยนใจในการจอง" : 
+                "คุณต้องการยกเลิกงานนี้ ?"
         }
         confirm({
-          title: 'Are you sure?',
+          title: 'คุณแน่ใจ ?',
           content,
           okText: 'Yes',
           okType: 'danger',
@@ -101,18 +101,18 @@ class Reservations extends React.Component {
         const linkError = isFieldTouched('link') && getFieldError('link');
 
         const columns = [{
-            title: 'ID',
+            title: 'ไอดี',
             dataIndex: 'job_id',
             key: 'job_id',
         },{
-            title: 'Title',
+            title: 'ชื่องาน',
             dataIndex: 'job_title',
             key: 'job_title',
             render: title => (
                 <div style={{ minWidth: 200 }}>{title}</div>
             )
         },{
-            title: (getCurrentClient() && getCurrentClient().type === 1) ? "Customer" : "Photographer",
+            title: (getCurrentClient() && getCurrentClient().type === 1) ? "ลูกค้า" : "ช่างภาพ",
             dataIndex: 'job_photographer',
             key: "user",
             render: (user, record) => {
@@ -122,7 +122,7 @@ class Reservations extends React.Component {
                 return <b>{user.profile.user.username}</b>
             }
         },{
-            title: 'Reservation Times',
+            title: 'เวลาการจอง',
             dataIndex: 'job_reservation',
             key: 'job_reservation',
             render: data => {
@@ -137,19 +137,19 @@ class Reservations extends React.Component {
                             ))}
                         </Menu>
                         )} trigger={['click']}>
-                        <Button shape="round">See Times</Button>
+                        <Button shape="round">ดูเวลา</Button>
                     </Dropdown>
                 )
             }
         },{
-            title: 'Total Price',
+            title: 'รวมราคา',
             dataIndex: 'job_total_price',
             key: 'job_total_price',
             render: (e) => {
-                return <span>{e}THB</span>
+                return <span>{e} บาท</span>
             }
         },{
-            title: 'Status',
+            title: 'สถานะ',
             dataIndex: 'job_status',
             key: 'job_status',
             render: status => {
@@ -167,14 +167,14 @@ class Reservations extends React.Component {
                 )
             }
         },{
-            title: 'More',
+            title: 'มากกว่า',
             dataIndex: 'job_id',
             key: 'job_id_1',
             render: (id) => {
                 return (
                     <Link to={`/client/reservations/${id}`}>
                         <Button shape="round">
-                            Details
+                            รายละเอียด
                             <Icon type="right"/>
                         </Button>
                     </Link>
@@ -193,13 +193,13 @@ class Reservations extends React.Component {
                                 type="primary" 
                                 className="ma-1"
                                 shape="round"
-                            >Accept</Button>
+                            >ยอมรับ</Button>
                             <Button 
                                 onClick={() => decline(record, 1)} 
                                 type="danger" 
                                 className="ma-1"
                                 shape="round"
-                            >Decline</Button>
+                            >ปฏิเสธ</Button>
                         </div>
                     );
                     case "DECLINED": return (<span/>);
@@ -210,7 +210,7 @@ class Reservations extends React.Component {
                             type="danger"
                             shape="round"
                         >
-                            Cancel
+                            ยกเลิก
                         </Button>
                     );
                     case "PAID": return (
@@ -221,7 +221,7 @@ class Reservations extends React.Component {
                                 type="primary"
                                 className="ma-1"
                             >
-                                Start Processing Photos
+                                เริ่มกระบวนการถ่ายภาพ
                             </Button>
                             { moment(record.job_start_date).subtract(1, 'days').isBefore(new Date()) && (
                                 <Button 
@@ -230,7 +230,7 @@ class Reservations extends React.Component {
                                     shape="round"
                                     className="ma-1"
                                 >
-                                    Cancel
+                                    ยกเลิก
                                 </Button>
                             )}
                         </div>
@@ -244,7 +244,7 @@ class Reservations extends React.Component {
                             shape="round"
                             type="primary"
                         >
-                            Add Photos Storage URL
+                            เพื่มรูปภาษ URL
                         </Button>
                     );
                     case "COMPLETED": return (
@@ -257,7 +257,7 @@ class Reservations extends React.Component {
                             shape="round"
                             type="primary"
                         >
-                            Change URL
+                            เปลี่ยน URL
                         </Button>
                     );
                     case "CLOSED": return (
@@ -270,7 +270,7 @@ class Reservations extends React.Component {
                             shape="round"
                             type="primary"
                         >
-                            Change URL
+                            เปลี่ยน URL
                         </Button>
                     );
                     case "REVIEWED": return (
@@ -283,7 +283,7 @@ class Reservations extends React.Component {
                             shape="round"
                             type="primary"
                         >
-                            Change URL
+                            เปลี่ยน URL
                         </Button>
                     );
                     default: return <span/>
@@ -297,7 +297,7 @@ class Reservations extends React.Component {
                             type="danger" 
                             className="ma-1"
                             shape="round"
-                        >Cancel</Button>
+                        >ยกเลิก</Button>
                     );
                     case "DECLINED": return (<span/>);
                     case "CANCELLED": return (<span/>);
@@ -313,7 +313,7 @@ class Reservations extends React.Component {
                                 type="danger" 
                                 className="ma-1"
                                 shape="round"
-                            >Cancel</Button>
+                            >ยกเลิก</Button>
                         </div>
                     );
                     case "PAID": return (
@@ -323,10 +323,10 @@ class Reservations extends React.Component {
                                 type="danger"
                                 shape="round"
                             >
-                                Cancel
+                                ยกเลิก
                             </Button>
                         ) : (
-                            <span>You cannot cancel your job right now.</span>
+                            <span>คุณไม่สามารถยกเลิกงานได้ตอนนี้</span>
                         )
                     );
                     case "PROCESSING": return (<span/>);
@@ -350,13 +350,13 @@ class Reservations extends React.Component {
                                     selectedJob: record
                                 })}
                             >
-                                Write a Review
+                                เขียนรีวิว
                             </Button>
                         </div>
                     );
                     case "REVIEWED": return (
                         <a href={record.job_url} target="_blank" rel="noopener noreferrer">
-                            <Button shape="round" type="primary" className="ma-1">See Photos</Button>
+                            <Button shape="round" type="primary" className="ma-1">ดูภาพ</Button>
                         </a>
                     );
                     default: return <span/>
@@ -413,7 +413,7 @@ class Reservations extends React.Component {
                     onCancel={() => this.setState({ showReviewModal: false })}
                 >
                     <Form>
-                        <b>Rate</b><br/>
+                        <b>เรท</b><br/>
                         <Rate 
                             allowHalf 
                             defaultValue={0} 
@@ -421,7 +421,7 @@ class Reservations extends React.Component {
                             value={this.state.rating} 
                             className="mb-3"
                         />
-                        <b className="d-block mb-1">Review</b>
+                        <b className="d-block mb-1">รีวิว</b>
                         <Form.Item>
                             <Input.TextArea
                                 placeholder="Your review:"
@@ -435,7 +435,7 @@ class Reservations extends React.Component {
                                 onClick={() => this.handleReviewSubmit()}
                                 htmlType="submit"
                                 disabled={this.state.rating === 0}
-                            >Post Review</Button>
+                            >โพสรีวิว</Button>
                         </Form.Item>
                     </Form>
                 </Modal>

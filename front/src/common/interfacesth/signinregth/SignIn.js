@@ -38,7 +38,7 @@ class SignIn extends React.Component {
                     <Form.Item validateStatus={usernameError ? 'error' : ''} help={usernameError || ''}>
                         {getFieldDecorator('username', {
                             rules: [
-                                { required: true,message: 'This field is required.' },
+                                { required: true,message: 'โปรดใส่ข้อมูล' },
                             ],
                         })(
                             <Input
@@ -50,7 +50,7 @@ class SignIn extends React.Component {
                     <label>Password</label>
                     <Form.Item validateStatus={passwordError ? 'error' : ''} help={passwordError || ''}>
                         {getFieldDecorator('password', {
-                            rules: [{ required: true, message: 'This field is required.' }],
+                            rules: [{ required: true, message: 'โปรดใส่ข้อมูล' }],
                         })(
                             <Input
                                 placeholder="Password"
