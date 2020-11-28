@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom"
-import { Button, Dropdown, Menu, Icon, Tag, Badge } from 'antd';
+import { Button, Dropdown, Menu, Icon, Tag, Badge, Switch } from 'antd';
 import logo from "assets/logo.png";
 import { connect } from "react-redux";
 import { signOut } from "common/actions/auth";
@@ -11,6 +11,7 @@ import { receiveNotifications, getNotificationText, readNotifications, countUnre
 class Nav extends React.Component {
     state = {
         showSignIn: false,
+        showEng: false,
         notifications: [],
         unreadCount: 0
     }
@@ -32,7 +33,7 @@ class Nav extends React.Component {
         }
     }
     render() {
-        const { showSignIn, notifications, unreadCount } = this.state;
+        const { showSignIn, showEng, notifications, unreadCount } = this.state;
         const { signOut, isAuth, transparent } = this.props;
         const currentClient = JSON.parse(localStorage.getItem('currentClient'))
         return (
@@ -168,6 +169,13 @@ class Nav extends React.Component {
                             <Link to="/signup">
                                 <Button type="primary" shape="round" htmlType="button">Sign Up</Button>
                             </Link>
+                            <Switch 
+                            checkedChildren="ENG" 
+                            unCheckedChildren="ไทย" 
+                            defaultChecked
+                            onChange={() => {
+                                this.handleLang(showEng)
+                            }}></Switch>
                         </div>
                     )}
                     { showSignIn && (
@@ -183,6 +191,13 @@ class Nav extends React.Component {
                 </div>
             </nav>
         )
+    }
+
+    handleLang(e) {
+        this.setState({
+            showEng: !e
+        });
+        console.log(e);
     }
 }
 
