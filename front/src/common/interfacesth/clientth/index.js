@@ -87,16 +87,16 @@ class ClientLanding extends React.Component {
                     )}
                 </Menu>
                 <Switch>
-                    <Route path="/client/edit/password" component={Password} />
-                    <Route path="/client/edit" component={Edit} />
-                    <Route path="/client/reservations/:jobId" component={JobDetails} />
-                    <Route path="/client/reservations" component={Reservations} />
-                    <Route path="/client/calendar" component={Calendar} />
-                    <Route path="/client/favorites" component={Favorites} />
-                    <Route path="/client/notifications" component={Notifications} />
-                    <Route path="/client/edit-portfolio" component={EditPortfolio} />
-                    <Route path="/client/edit-profile" component={EditProfile} />
-                    <Route path="/client" component={RedirectToEdit} />
+                    <Route path="/client/edit/password/th" component={Password} />
+                    <Route path="/client/edit/th" component={Edit} />
+                    <Route path="/client/reservations/:jobId/th" component={JobDetails} />
+                    <Route path="/client/reservations/th" component={Reservations} />
+                    <Route path="/client/calendar/th" component={Calendar} />
+                    <Route path="/client/favorites/th" component={Favorites} />
+                    <Route path="/client/notifications/th" component={Notifications} />
+                    <Route path="/client/edit-portfolio/th" component={EditPortfolio} />
+                    <Route path="/client/edit-profile/th" component={EditProfile} />
+                    <Route path="/client/th" component={RedirectToEdit} />
                 </Switch>
             </div>
         );

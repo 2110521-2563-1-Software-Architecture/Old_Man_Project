@@ -168,14 +168,15 @@ class Nav extends React.Component {
                             })}>Sign In</Button>
                             <Link to="/signup">
                                 <Button type="primary" shape="round" htmlType="button">Sign Up</Button>
-                            </Link>
+                            </Link>                            
                             <Switch 
                             checkedChildren="ENG" 
                             unCheckedChildren="ไทย" 
-                            defaultChecked
-                            onChange={() => {
-                                this.handleLang(showEng)
-                            }}></Switch>
+                            defaultChecked={!showEng}
+                            onChange={() => 
+                                this.setState({
+                                    showEng: !showEng
+                                })}></Switch>
                         </div>
                     )}
                     { showSignIn && (
@@ -198,6 +199,14 @@ class Nav extends React.Component {
             showEng: !e
         });
         console.log(e);
+        console.log(window.location.pathname);
+        if(e) {
+            window.location = window.location.pathname.slice(0,-3);
+        }
+        else{
+            window.location = window.location.pathname + "/th";
+        }
+        
     }
 }
 
