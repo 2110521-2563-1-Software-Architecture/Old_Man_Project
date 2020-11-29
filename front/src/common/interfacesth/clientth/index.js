@@ -32,7 +32,7 @@ class ClientLanding extends React.Component {
                                 <NavLink 
                                     className="ant-menu-item" 
                                     activeClassName="ant-menu-item-selected"
-                                    to="/client/edit-portfolio"
+                                    to="/client/edit-portfolio/th"
                                 >
                                         แก้ไข Portfolio
                                 </NavLink>
@@ -41,7 +41,7 @@ class ClientLanding extends React.Component {
                                 <NavLink 
                                     className="ant-menu-item" 
                                     activeClassName="ant-menu-item-selected"
-                                    to="/client/edit-profile"
+                                    to="/client/edit-profile/th"
                                 >
                                         แก้ไข Profile
                                 </NavLink>
@@ -50,7 +50,7 @@ class ClientLanding extends React.Component {
                                 <NavLink 
                                     className="ant-menu-item" 
                                     activeClassName="ant-menu-item-selected"
-                                    to="/client/favorites"
+                                    to="/client/favorites/th"
                                 >
                                         ช่างภาพคนโปรด
                                 </NavLink>
@@ -58,28 +58,28 @@ class ClientLanding extends React.Component {
                             <NavLink 
                                 className="ant-menu-item" 
                                 activeClassName="ant-menu-item-selected"
-                                to="/client/reservations"
+                                to="/client/reservations/th"
                             >
                                     การจองของฉัน
                             </NavLink>
                             <NavLink 
                                 className="ant-menu-item" 
                                 activeClassName="ant-menu-item-selected"
-                                to="/client/calendar"
+                                to="/client/calendar/th"
                             >
                                 ปฏิทินของฉัน
                             </NavLink>
                             <NavLink 
                                 className="ant-menu-item" 
                                 activeClassName="ant-menu-item-selected"
-                                to="/client/notifications"
+                                to="/client/notifications/th"
                             >
                                 การแจ้งเตือนทั้งหมด
                             </NavLink>
                             <NavLink 
                                 className="ant-menu-item" 
                                 activeClassName="ant-menu-item-selected"
-                                to="/client/edit"
+                                to="/client/edit/th"
                             >
                                 ข้อมูลส่วนตัวทั่วไป
                             </NavLink>
