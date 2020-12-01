@@ -1,16 +1,16 @@
 import React from 'react';
-import history from "../../common/router/history";
+import history from "../../../common/router/history";
 import { Button, Form, Input } from "antd";
 import { Link } from 'react-router-dom';
 import { animateScroll as scroll } from 'react-scroll'
 import Axios from "axios";
-import { getCurrentClientInfo } from "../../common/auth";
+import { getCurrentClientInfo } from "../../../common/auth";
 
 function hasErrors(fieldsError) {
     return Object.keys(fieldsError).some(field => fieldsError[field]);
 }
 
-class Edit extends React.Component {
+class Editth extends React.Component {
     componentDidMount = async () => {
         const currentClient = await getCurrentClientInfo();
         this.setState({ currentClient })
@@ -107,7 +107,7 @@ class Edit extends React.Component {
     
             return (
                 <div className="container mt-4 with-sidebar pl-4">
-                    <h1>Personal Information</h1>
+                    <h1>ข้อมูลส่วนตัว</h1>
                     { success && 
                         <React.Fragment>
                             <div className="success-banner">
@@ -125,7 +125,7 @@ class Edit extends React.Component {
                         </React.Fragment>
                     }
                     <Form>
-                        <h3>Account Information</h3>
+                        <h3>ข้อมูลทั่วไป</h3>
                         <label>Email</label>
                         <Form.Item 
                             validateStatus={emailError ? 'error' : ''} 
@@ -193,7 +193,7 @@ class Edit extends React.Component {
                                 </Form.Item>
                             </div>
                             <div className="ml-1 full-width">
-                                <label>Last Name</label>    
+                                <label>นามสกุล</label>    
                                 <Form.Item 
                                     validateStatus={lastNameError ? 'เกิดข้อผิดพลาด' : ''} 
                                     help={lastNameError || ''}
@@ -213,7 +213,7 @@ class Edit extends React.Component {
                                 </Form.Item>
                             </div>
                         </div>
-                        <label>Social Security Number</label>
+                        <label>เลขประจำตัวประชาชน</label>
                         <Form.Item 
                             validateStatus={(ssnError || ssnLengthError) ? 'เกิดข้อผิลพลาด' : ''} 
                             help={ssnError || (ssnLengthError && "SSN ควรจะยาว 13 ตัวอักษร") || ''}
@@ -254,7 +254,7 @@ class Edit extends React.Component {
                                 </Form.Item>
                             </div>
                             <div className="ml-1 full-width">
-                                <label>Bank Name</label>
+                                <label>ชื่อธนาคาร</label>
                                 <Form.Item 
                                     validateStatus={bankNameError ? 'error' : ''} 
                                     help={bankNameError || ''}
@@ -322,6 +322,6 @@ class Edit extends React.Component {
     }
 }
 
-const WrappedEditForm = Form.create({ name: 'edit_profile' })(Edit);
+const WrappedEditForm = Form.create({ name: 'edit_profile' })(Editth);
 
 export default WrappedEditForm;

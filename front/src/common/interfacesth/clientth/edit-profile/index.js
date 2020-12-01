@@ -17,7 +17,7 @@ function hasErrors(fieldsError) {
     return Object.keys(fieldsError).some(field => fieldsError[field]);
 }
 
-class EditProfile extends React.Component {
+class EditProfileth extends React.Component {
     componentDidMount = async () => {
         const currentClient = await getCurrentClientInfo();
         this.setState({
@@ -142,7 +142,7 @@ const mapStateToProps = (state) => ({
     currentStyles: state.editProfile.currentStyles,
     currentAvailTimes: state.editProfile.currentAvailTimes
 })
-const WrappedForm = Form.create({ name: 'edit_profile' })(EditProfile);
+const WrappedForm = Form.create({ name: 'edit_profile' })(EditProfileth);
 export default connect(
     mapStateToProps,
     null

@@ -35,7 +35,7 @@ const columns = [{
     }
 }];
 
-class Notifications extends React.Component {
+class Notificationsth extends React.Component {
     async componentDidMount () {
         const currentClient = getCurrentClient();
         const res = await Axios.get("/api/notification/?search=" + currentClient.username);
@@ -60,4 +60,4 @@ class Notifications extends React.Component {
     }
 }
 
-export default Notifications;
+export default Notificationsth;

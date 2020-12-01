@@ -2,7 +2,7 @@ import React from "react"
 import { Input, Table, Button, Modal, 
     Dropdown, Menu, Form, Icon, Rate } from "antd";
 import { Link } from "react-router-dom";
-import CheckoutCreditCard from "../../omise/Checkout";
+import CheckoutCreditCard from "../../../omise/Checkout";
 import { formatDate } from "common/date";
 import { getCurrentClient } from "common/auth";
 import moment from "moment";

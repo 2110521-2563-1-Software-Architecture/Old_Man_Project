@@ -1,19 +1,19 @@
 import React from "react"
 import { Switch, Route, Redirect, NavLink} from "react-router-dom";
-import Edit from "./edit";
+import Editth from "./edit";
 import Password from "./password"
 import Reservations from "./reservations";
 import EditPortfolio from "./edit-portfolio/"
-import EditProfile from "./edit-profile/"
+import EditProfileth from "./edit-profile/"
 import Calendar from "./calendar";
 import JobDetails from "./job-details";
 import { getCurrentClient } from "common/auth";
 
 import { Menu } from 'antd';
-import Notifications from "./notifications";
+import Notificationsth from "./notifications";
 import Favorites from "./favorites";
 
-class ClientLanding extends React.Component {
+class ClientLandingth extends React.Component {
     render() {
         const currentClient = getCurrentClient();
         const { type } = currentClient;
@@ -32,7 +32,7 @@ class ClientLanding extends React.Component {
                                 <NavLink 
                                     className="ant-menu-item" 
                                     activeClassName="ant-menu-item-selected"
-                                    to="/client/edit-portfolio/th"
+                                    to="/th/client/edit-portfolio/"
                                 >
                                         แก้ไข Portfolio
                                 </NavLink>
@@ -41,7 +41,7 @@ class ClientLanding extends React.Component {
                                 <NavLink 
                                     className="ant-menu-item" 
                                     activeClassName="ant-menu-item-selected"
-                                    to="/client/edit-profile/th"
+                                    to="/th/client/edit-profile"
                                 >
                                         แก้ไข Profile
                                 </NavLink>
@@ -50,7 +50,7 @@ class ClientLanding extends React.Component {
                                 <NavLink 
                                     className="ant-menu-item" 
                                     activeClassName="ant-menu-item-selected"
-                                    to="/client/favorites/th"
+                                    to="/th/client/favorites"
                                 >
                                         ช่างภาพคนโปรด
                                 </NavLink>
@@ -58,28 +58,28 @@ class ClientLanding extends React.Component {
                             <NavLink 
                                 className="ant-menu-item" 
                                 activeClassName="ant-menu-item-selected"
-                                to="/client/reservations/th"
+                                to="/th/client/reservations"
                             >
                                     การจองของฉัน
                             </NavLink>
                             <NavLink 
                                 className="ant-menu-item" 
                                 activeClassName="ant-menu-item-selected"
-                                to="/client/calendar/th"
+                                to="/th/client/calendar"
                             >
                                 ปฏิทินของฉัน
                             </NavLink>
                             <NavLink 
                                 className="ant-menu-item" 
                                 activeClassName="ant-menu-item-selected"
-                                to="/client/notifications/th"
+                                to="/th/client/notifications"
                             >
                                 การแจ้งเตือนทั้งหมด
                             </NavLink>
                             <NavLink 
                                 className="ant-menu-item" 
                                 activeClassName="ant-menu-item-selected"
-                                to="/client/edit/th"
+                                to="th/client/edit"
                             >
                                 ข้อมูลส่วนตัวทั่วไป
                             </NavLink>
@@ -87,23 +87,23 @@ class ClientLanding extends React.Component {
                     )}
                 </Menu>
                 <Switch>
-                    <Route path="/client/edit/password/th" component={Password} />
-                    <Route path="/client/edit/th" component={Edit} />
+                    <Route path="th/client/edit/password" component={Password} />
+                    <Route path="/th/client/edit" component={Editth} />
                     <Route path="/client/reservations/:jobId/th" component={JobDetails} />
-                    <Route path="/client/reservations/th" component={Reservations} />
-                    <Route path="/client/calendar/th" component={Calendar} />
-                    <Route path="/client/favorites/th" component={Favorites} />
-                    <Route path="/client/notifications/th" component={Notifications} />
+                    <Route path="/th/client/reservations" component={Reservations} />
+                    <Route path="/th/client/calendar" component={Calendar} />
+                    <Route path="/th/client/favorites" component={Favorites} />
+                    <Route path="/th/client/notifications" component={Notificationsth} />
                     <Route path="/client/edit-portfolio/th" component={EditPortfolio} />
-                    <Route path="/client/edit-profile/th" component={EditProfile} />
-                    <Route path="/client/th" component={RedirectToEdit} />
+                    <Route path="/th/client/edit-profile" component={EditProfileth} />
+                    <Route path="/th/client" component={RedirectToEdit} />
                 </Switch>
             </div>
         );
     }
 }
 const RedirectToEdit = () => (
-    <Redirect to="/client/edit" />
+    <Redirect to="/th/client/edit" />
 )
 
-export default ClientLanding
+export default ClientLandingth

@@ -1,5 +1,5 @@
 import React from 'react';
-import history from "../../common/router/history";
+import history from "../../../common/router/history";
 import { getCurrentClientInfo } from "common/auth";
 import { Button, Form, Input } from "antd";
 import { animateScroll as scroll } from 'react-scroll'
