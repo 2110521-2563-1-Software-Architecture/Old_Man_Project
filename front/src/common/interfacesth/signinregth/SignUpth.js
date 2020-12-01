@@ -1,7 +1,7 @@
 import React from "react";
-import history from "../../common/router/history";
+import history from "../../../common/router/history";
 import { Button, Form, Input, Select, Row, Col } from "antd";
-import { signIn } from "../../common/actions/auth";
+import { signIn } from "../../../common/actions/auth";
 import { connect } from "react-redux";
 import image from "assets/signup.jpg";
 import Axios from "axios";
@@ -13,7 +13,7 @@ function hasErrors(fieldsError) {
 
 const { Option } = Select;
 
-class SignUp extends React.Component {
+class SignUpth extends React.Component {
     componentDidMount() {
         // To disable submit button at the beginning.
         this.props.form.validateFields();
@@ -326,7 +326,7 @@ class SignUp extends React.Component {
     }
 }
 
-const WrappedSignUpForm = Form.create({ name: 'signIn' })(SignUp);
+const WrappedSignUpForm = Form.create({ name: 'signIn' })(SignUpth);
 
 export default connect(
 	null,

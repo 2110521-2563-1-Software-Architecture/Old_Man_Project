@@ -5,13 +5,13 @@ import { connect } from "react-redux"
 import { getCurrentClientInfo } from "common/auth";
 import { formatDateTime } from "common/date";
 import JobCalendar from "./calendar";
-import { styleColors } from "../../common/style-colors";
+import { styleColors } from "../../../common/style-colors";
 import Axios from "axios"
-import SignInModal from "../signinreg/modal";
+import SignInModal from "../signinregth/modal";
 import history from "common/router/history";
 import Reviews from "./reviews";
 
-class Profile extends React.Component {
+class Profileth extends React.Component {
     state = {
         display: 0,
         currentPhotographer: null,
@@ -276,4 +276,4 @@ const mapStateToProps = state => ({
     isAuth: state.auth.isAuth
 })
 
-export default connect(mapStateToProps, null)(Profile)
+export default connect(mapStateToProps, null)(Profileth)

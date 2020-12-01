@@ -11,7 +11,7 @@ import { availableSorts } from "logic/Listing"
 import { timeLabels } from "logic/Calendar"
 import { formatSnakeDate } from "common/date";
 
-class Listing extends React.Component {
+class Listingth extends React.Component {
 
     state = {
         photographers: [],
@@ -393,4 +393,4 @@ class Listing extends React.Component {
 const mapStateToProps = state => ({
     isAuth: state.auth.isAuth
 })
-export default connect(mapStateToProps,null)(Listing);
+export default connect(mapStateToProps,null)(Listingth);
