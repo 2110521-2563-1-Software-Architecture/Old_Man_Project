@@ -161,10 +161,10 @@ class Nav extends React.Component {
                                             <label>Language</label>
                                             <Menu.Divider />
                                             <Menu.Item>
-                                                <Link to="/signup">English</Link>
+                                                <Link to="/">English</Link>
                                             </Menu.Item>
                                             <Menu.Item>
-                                                <Link to="/signup">Thai</Link>
+                                                <Link to="/th">Thai</Link>
                                             </Menu.Item>
                                         </Menu>
                                 )} trigger={['click']}>
@@ -190,10 +190,10 @@ class Nav extends React.Component {
                                         <label>Language</label>
                                         <Menu.Divider />
                                         <Menu.Item>
-                                            <Link to="/signup">English</Link>
+                                            <Link to="/">English</Link>
                                         </Menu.Item>
                                         <Menu.Item>
-                                            <Link to="/signup">Thai</Link>
+                                            <Link to="/th">Thai</Link>
                                         </Menu.Item>
                                     </Menu>
                             )} trigger={['click']}>

@@ -9,7 +9,7 @@ function hasErrors(fieldsError) {
     return Object.keys(fieldsError).some(field => fieldsError[field]);
 }
 
-class Edit extends React.Component {
+class Passwordth extends React.Component {
     componentDidMount() {
         // To disable submit button at the beginning.
         this.props.form.validateFields();
@@ -147,6 +147,6 @@ class Edit extends React.Component {
     }
 }
 
-const WrappedEditForm = Form.create({ name: 'edit_profile' })(Edit);
+const WrappedEditForm = Form.create({ name: 'edit_profile' })(Passwordth);
 
 export default WrappedEditForm;

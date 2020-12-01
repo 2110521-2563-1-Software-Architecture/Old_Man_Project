@@ -144,7 +144,7 @@ class Editth extends React.Component {
                             )}
                         </Form.Item>
                         <Form.Item>
-                            <Link to="/client/edit/password">
+                            <Link to="/th/client/edit/password">
                                 <Button 
                                     type="primary" 
                                     className="mr-2"

@@ -1,7 +1,7 @@
 import React from "react"
 import { Switch, Route, Redirect, NavLink} from "react-router-dom";
 import Editth from "./edit";
-import Password from "./password"
+import Passwordth from "./password"
 import Reservations from "./reservations";
 import EditPortfolio from "./edit-portfolio/"
 import EditProfileth from "./edit-profile/"
@@ -87,14 +87,14 @@ class ClientLandingth extends React.Component {
                     )}
                 </Menu>
                 <Switch>
-                    <Route path="th/client/edit/password" component={Password} />
+                    <Route path="/th/client/edit/password" component={Passwordth} />
                     <Route path="/th/client/edit" component={Editth} />
-                    <Route path="/client/reservations/:jobId/th" component={JobDetails} />
+                    <Route path="/th/client/reservations/:jobId" component={JobDetails} />
                     <Route path="/th/client/reservations" component={Reservations} />
                     <Route path="/th/client/calendar" component={Calendar} />
                     <Route path="/th/client/favorites" component={Favorites} />
                     <Route path="/th/client/notifications" component={Notificationsth} />
-                    <Route path="/client/edit-portfolio/th" component={EditPortfolio} />
+                    <Route path="/th/client/edit-portfolio" component={EditPortfolio} />
                     <Route path="/th/client/edit-profile" component={EditProfileth} />
                     <Route path="/th/client" component={RedirectToEdit} />
                 </Switch>
