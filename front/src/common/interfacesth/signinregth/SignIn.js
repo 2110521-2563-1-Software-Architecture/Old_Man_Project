@@ -1,7 +1,7 @@
 import React from "react";
-import history from "../../common/router/history";
+import history from "../../../common/router/history";
 import { Button, Form, Input } from "antd";
-import { signIn } from "../../common/actions/auth";
+import { signIn } from "../../../common/actions/auth";
 import { connect } from "react-redux";
 
 function hasErrors(fieldsError) {

@@ -5,7 +5,7 @@ import { formatDashedDate, formatDate } from "common/date";
 import { timeLabels } from "logic/Calendar"
 import moment from "moment";
 import Axios from "axios";
-import history from "../listingth/node_modules/common/router/history";
+import history from "common/router/history";
 import { styleLabels } from "logic/Styles";
 
 function hasErrors(fieldsError) {

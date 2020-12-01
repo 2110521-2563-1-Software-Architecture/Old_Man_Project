@@ -7,6 +7,9 @@ import { setAuth } from "common/actions/auth";
 import { connect } from "react-redux";
 import Profile from "interfaces/profile";
 import Listing from "interfaces/listing"
+import Listingth from "../interfacesth/listingth"
+import SignUpth from "../interfacesth/signinregth/SignUpth"
+import Profileth from "../interfacesth/profileth"
 import ClientLanding from "interfaces/client";
 import SignUp from "interfaces/signinreg/SignUp";
 import Error from "../components/Error";
@@ -22,9 +25,13 @@ class AppRouter extends React.Component {
                     <Switch>
                         <PrivateRoute path="/client" component={ClientLanding}/>
                         <PublicRoute path="/signup" component={SignUp}/>
+                        <PublicRoute path="/th/signup" component={SignUpth}/>
                         <PublicRoute path="/profile/:username" component={Profile}/>
+                        <PublicRoute path="/th/profile/:username" component={Profileth}/>
                         <PublicRoute path="/" component={Listing} exact/>
+                        <PublicRoute path="/th" component={Listingth} exact/>
                         <Route path="/" component={NotFound}/>
+
                     </Switch>
                 </Router>
             </React.Fragment>
