@@ -100,7 +100,7 @@ class Nav extends React.Component {
                                 </Dropdown>
                             </div>
                             <div>
-                                <Dropdown overlay={() => (
+                                <Dropdown className="mr-2" overlay={() => (
                                     currentClient.type === 1 ? (
                                         <Menu>
                                             <Menu.Item key="0">
@@ -155,6 +155,22 @@ class Nav extends React.Component {
                                     <Button type="primary" shape="circle" icon="user" size="large"/>
                                 </Dropdown>
                             </div>
+                            <div>
+                            <Dropdown className="mr-6" overlay={() => (
+                                        <Menu>
+                                            <label>Language</label>
+                                            <Menu.Divider />
+                                            <Menu.Item>
+                                                <Link to="/signup">English</Link>
+                                            </Menu.Item>
+                                            <Menu.Item>
+                                                <Link to="/signup">Thai</Link>
+                                            </Menu.Item>
+                                        </Menu>
+                                )} trigger={['click']}>
+                                    <Button type="primary" shape="circle" icon="user" size="default"/>
+                                </Dropdown>
+                            </div>
                         </div>
                     ) : (
                         <div>
@@ -167,16 +183,22 @@ class Nav extends React.Component {
                                 showSignIn: true
                             })}>Sign In</Button>
                             <Link to="/signup">
-                                <Button type="primary" shape="round" htmlType="button">Sign Up</Button>
+                                <Button type="primary" className="mr-2" shape="round" htmlType="button">Sign Up</Button>
                             </Link>                            
-                            <Switch 
-                            checkedChildren="ENG" 
-                            unCheckedChildren="ไทย" 
-                            defaultChecked={!showEng}
-                            onChange={() => 
-                                this.setState({
-                                    showEng: !showEng
-                                })}></Switch>
+                            <Dropdown className="mr-6" overlay={() => (
+                                    <Menu>
+                                        <label>Language</label>
+                                        <Menu.Divider />
+                                        <Menu.Item>
+                                            <Link to="/signup">English</Link>
+                                        </Menu.Item>
+                                        <Menu.Item>
+                                            <Link to="/signup">Thai</Link>
+                                        </Menu.Item>
+                                    </Menu>
+                            )} trigger={['click']}>
+                                <Button type="primary" shape="circle" icon="user" size="default"/>
+                            </Dropdown>
                         </div>
                     )}
                     { showSignIn && (

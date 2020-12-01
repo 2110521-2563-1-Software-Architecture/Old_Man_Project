@@ -135,7 +135,7 @@ class SignUp extends React.Component {
                         <div className="pa-4">
                             <h1>Sign Up</h1>
                             <Form>
-                                <h3>รายละเอีดยอข้อมูล</h3>
+                                <h3>รายละเอียดข้อมูล</h3>
                                 <label>Username</label>
                                 <Form.Item validateStatus={usernameError ? 'error' : ''} help={usernameError || ''}>
                                     {getFieldDecorator('username', {

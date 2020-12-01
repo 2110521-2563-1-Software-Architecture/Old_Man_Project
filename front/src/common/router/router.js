@@ -11,6 +11,7 @@ import ClientLanding from "interfaces/client";
 import SignUp from "interfaces/signinreg/SignUp";
 import Error from "../components/Error";
 import NotFound from "../components/NotFound";
+//import SignUpth from "../interfacesth/signinregth/SignUpth";
 
 
 class AppRouter extends React.Component {
@@ -24,6 +25,7 @@ class AppRouter extends React.Component {
                         <PublicRoute path="/signup" component={SignUp}/>
                         <PublicRoute path="/profile/:username" component={Profile}/>
                         <PublicRoute path="/" component={Listing} exact/>
+                        {/* <PublicRoute path="/signup/th" component={SignUpth}/> */}
                         <Route path="/" component={NotFound}/>
                     </Switch>
                 </Router>
