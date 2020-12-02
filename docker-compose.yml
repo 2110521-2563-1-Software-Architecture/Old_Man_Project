@@ -1,6 +1,6 @@
 version: '3.5'
 services:
-  romeo-front:
+  front:
     container_name: front
     build:
       context: ./front
@@ -23,10 +23,10 @@ services:
       - '3306:3306'
     environment:
       - MYSQL_HOST=localhost
-      - MYSQL_DATABASE=romeo-database
-      - MYSQL_PASSWORD=1834
+      - MYSQL_DATABASE=oldman
+      - MYSQL_PASSWORD=43654
       - MYSQL_ROOT_PASSWORD=1834
-  romeo-back:
+  back:
     container_name: backend
     build: ./backend
     command: python ./backend/manage.py runserver 0.0.0.0:8000
