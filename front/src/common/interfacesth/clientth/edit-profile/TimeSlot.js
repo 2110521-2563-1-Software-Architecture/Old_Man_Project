@@ -54,21 +54,21 @@ class TimeSlot extends React.Component {
             >
                 { editEnabled ? (
                     <div>
-                        <label>Time</label>
+                        <label>เวลา</label>
                         <Select
                             onChange={e => this.setState({ currentTime: e })}
                             defaultValue=""
                             className="mb-3"
                         >
-                            <Select.Option value="">Please Select Time</Select.Option>
+                            <Select.Option value="">โปรดเลือกเวลา</Select.Option>
                             { Object.keys(choices).map((k,i) => (
                                 <Select.Option value={k} key={k + 'select' + i}>
                                     {choices[k]}
                                 </Select.Option>
                             ))}
                         </Select>
-                        <label>Price</label><br/>
-                        <small>Must be greater than or equal to 100THB</small>
+                        <label>ราคา</label><br/>
+                        <small>ควรมากกว่าหรือเท่ากับ 100 บาท</small>
                         <Input
                             onChange={e => this.setState({ currentPrice: e.target.value })}
                             value={currentPrice}
@@ -82,15 +82,15 @@ class TimeSlot extends React.Component {
                             }
                             onClick={() => this.addAvailTime()}
                         >
-                            Add Available Time <Icon type="plus"/>
+                            เพิ่มเวลาที่ว่าง <Icon type="plus"/>
                         </Button>
                     </div>
                 ) : (
                     <React.Fragment>
                         <div className="mr-4">
-                            <label>Time</label>
+                            <label>เวลา</label>
                             <b className="d-block mb-2">{timeLabels[data.avail_time]}</b>
-                            <label>Price</label>
+                            <label>ราคา</label>
                             <b className="d-block">{data.photographer_price}</b>
                         </div>
                         <div>

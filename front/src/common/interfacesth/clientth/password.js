@@ -1,5 +1,5 @@
 import React from 'react';
-import history from "../../common/router/history";
+import history from "../../../common/router/history";
 import { getCurrentClientInfo } from "common/auth";
 import { Button, Form, Input } from "antd";
 import { animateScroll as scroll } from 'react-scroll'
@@ -9,7 +9,7 @@ function hasErrors(fieldsError) {
     return Object.keys(fieldsError).some(field => fieldsError[field]);
 }
 
-class Edit extends React.Component {
+class Passwordth extends React.Component {
     componentDidMount() {
         // To disable submit button at the beginning.
         this.props.form.validateFields();
@@ -70,56 +70,56 @@ class Edit extends React.Component {
                 <div className="mb-4">
                     { passwordsDoNotMatch && (
                         <div className="error-banner">
-                            <b className="t-color-error">Passwords Do Not Match</b>
+                            <b className="t-color-error">รหัสผ่านไม่ตรง</b>
                         </div>
                     ) }
                     { wrongPassword && (
                         <div className="error-banner">
-                            <b>Incorrect Old Password</b>
+                            <b>รหัสผ่านเก่าไม่ถูกต้อง</b>
                         </div>
                     ) }
                     { success && (
                         <div className="success-banner">
-                            <b>Password has been edited.</b>
+                            <b>รหัสผ่านถูกเปลัี่ยน</b>
                         </div>
                     ) }
                 </div>
                 <Form>
-                    <label>Old Password</label>
-                    <Form.Item validateStatus={oldPasswordError ? 'error' : ''} help={oldPasswordError || ''}>
+                    <label>รหัสผ่านเก่า</label>
+                    <Form.Item validateStatus={oldPasswordError ? 'เกิดข้อผิดพลาด' : ''} help={oldPasswordError || ''}>
                         {getFieldDecorator('oldPassword', {
                             rules: [
-                                { required: true,message: 'This field is required.' },
+                                { required: true,message: 'โปรดใส่ข้อมูล' },
                             ],
                         })(
                             <Input
-                                placeholder="Old Password"
+                                placeholder="รหัสผ่านเก่า"
                                 type="password"
                             />,
                         )}
                     </Form.Item>
-                    <label>New Password</label>
-                    <Form.Item validateStatus={newPasswordError ? 'error' : ''} help={newPasswordError || ''}>
+                    <label>รหัสผ่านใหม่</label>
+                    <Form.Item validateStatus={newPasswordError ? 'เกิดข้อผิดพลาด' : ''} help={newPasswordError || ''}>
                         {getFieldDecorator('newPassword', {
                             rules: [
-                                { required: true,message: 'This field is required.' },
+                                { required: true,message: 'โปรดใส่ข้อมูล' },
                             ],
                         })(
                             <Input
-                                placeholder="New Password"
+                                placeholder="รหัสผ่านใหม่"
                                 type="password"
                             />,
                         )}
                     </Form.Item>
                     <label>Confirm New Password</label>
-                    <Form.Item validateStatus={confirmPasswordError ? 'error' : ''} help={confirmPasswordError || ''}>
+                    <Form.Item validateStatus={confirmPasswordError ? 'เกิดข้อผิดพลาด' : ''} help={confirmPasswordError || ''}>
                         {getFieldDecorator('confirmPassword', {
                             rules: [
-                                { required: true,message: 'This field is required.' },
+                                { required: true,message: 'โปรดใส่ข้อมูล' },
                             ],
                         })(
                             <Input
-                                placeholder="Confirm New Password"
+                                placeholder="โปรดพิมพ์รหัสผ่านใหม่อีกครั้ง"
                                 type="password"
                             />,
                         )}
@@ -132,13 +132,13 @@ class Edit extends React.Component {
                                 className="mr-2"
                                 htmlType="submit" 
                                 disabled={hasErrors(getFieldsError())}
-                            >Confirm Password Edit</Button>
+                            >ยืนยันการเปลี่ยนรหัสผ่าน</Button>
                             <Button 
                                 type="secondary" 
                                 onClick={() => history.goBack()}
                                 className="mr-2"
                                 htmlType="button" 
-                            >Back</Button>
+                            >กลับ</Button>
                         </div>
                     </Form.Item>
                 </Form>
@@ -147,6 +147,6 @@ class Edit extends React.Component {
     }
 }
 
-const WrappedEditForm = Form.create({ name: 'edit_profile' })(Edit);
+const WrappedEditForm = Form.create({ name: 'edit_profile' })(Passwordth);
 
 export default WrappedEditForm;

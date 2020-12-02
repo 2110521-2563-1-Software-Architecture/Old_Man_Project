@@ -11,7 +11,7 @@ import { availableSorts } from "logic/Listing"
 import { timeLabels } from "logic/Calendar"
 import { formatSnakeDate } from "common/date";
 
-class Listing extends React.Component {
+class Listingth extends React.Component {
 
     state = {
         photographers: [],
@@ -223,21 +223,21 @@ class Listing extends React.Component {
             <div style={{ marginTop: -64 }}>
                 <Parallax
                     blur={{ min: -15, max: 15 }}
-                    bgImage={require('assets/banner-background.jpg')}
+                    bgImage={require('assets/banner-background2.jpg')}
                     bgImageAlt="photobg"
                     strength={300}
                     className="full-width t-color-white"
                 >
                     <div className="container pb-5 pt-5 d-flex align-center" style={{ height: 500 }}>
                         <div className="hero-text">
-                            <div className="header">Photo Bro</div>
-                            <div className="subheader">Find your photographer</div>
+                            <div className="header">Photo Matcher</div>
+                            <div className="subheader">ค้นหาช่างภาพของคุณ</div>
                         </div>
                     </div>
                 </Parallax>
                 <div className="container mt-5 mb-5">
                     <div className="secondary-label mb-3 pl-0 t-color-default" style={{ textAlign: 'center' }}>
-                        Search and Filter
+                        ค้นหา
                     </div>
                     <div className="d-flex align-center" style={{ maxWidth: 500, margin: 'auto' }}>
                         <Input.Search 
@@ -267,7 +267,7 @@ class Listing extends React.Component {
                                     <Radio 
                                         value=""
                                         style={{display: 'block'}}
-                                    >Any</Radio>
+                                    >ไม่มีอะไร</Radio>
                                     { availableStyles.map((e,i) => (
                                         <Radio 
                                             value={e.value} 
@@ -281,7 +281,7 @@ class Listing extends React.Component {
                             trigger={['click']}
                         >
                             <Button type="primary" size="large" className="mr-1 mb-1 pr-2 pl-3">
-                                <span>Styles</span>
+                                <span>สไตล์</span>
                                 <Icon type="down" />
                             </Button>
                         </Dropdown>
@@ -295,7 +295,7 @@ class Listing extends React.Component {
                                     <Radio 
                                         value=""
                                         style={{display: 'block'}}
-                                    >None</Radio>
+                                    >ไม่มี</Radio>
                                     { availableSorts.map((e,i) => (
                                         <Radio 
                                             className="vertical"
@@ -324,7 +324,7 @@ class Listing extends React.Component {
                                     <Radio 
                                         value=""
                                         style={{display: 'block'}}
-                                    >None</Radio>
+                                    >ไม่มี</Radio>
                                     { Object.keys(timeLabels).map((e,i) => (
                                         <Radio 
                                             className="vertical"
@@ -337,7 +337,7 @@ class Listing extends React.Component {
                             </Form>
                         )} trigger={['click']}>
                             <Button type="primary" size="large" className="mr-1 mb-1 pr-2 pl-3">
-                                Time <Icon type="down" />
+                                เวลา <Icon type="down" />
                             </Button>
                         </Dropdown>                        
                     </div>
@@ -352,7 +352,7 @@ class Listing extends React.Component {
                             <div className="d-flex align-center justify-center" style={{ height: 400 }}>
                                 <div>
                                     <Icon type="search" style={{ fontSize: 60 }} className="t-color-light mb-3"/>
-                                    <h3 className="t-color-light">No Results</h3>
+                                    <h3 className="t-color-light">ไม่มีผลลัพธ์ที่จะแสดง</h3>
                                 </div>
                             </div> 
                         )) : (
@@ -376,10 +376,10 @@ class Listing extends React.Component {
                         <div className="d-flex align-center justify-center mt-4">
                             <Button className="ma-1" disabled={!pagination.prev}>
                                 <Icon type="left" />
-                                Previous
+                                ก่อนหน้า
                             </Button>
                             <Button className="ma-1" disabled={!pagination.next}>
-                                Next
+                                ต่อไป
                                 <Icon type="right"/>
                             </Button>
                         </div>
@@ -393,4 +393,4 @@ class Listing extends React.Component {
 const mapStateToProps = state => ({
     isAuth: state.auth.isAuth
 })
-export default connect(mapStateToProps,null)(Listing);
+export default connect(mapStateToProps,null)(Listingth);

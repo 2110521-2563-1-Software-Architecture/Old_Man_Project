@@ -5,13 +5,13 @@ import { connect } from "react-redux"
 import { getCurrentClientInfo } from "common/auth";
 import { formatDateTime } from "common/date";
 import JobCalendar from "./calendar";
-import { styleColors } from "../../common/style-colors";
+import { styleColors } from "../../../common/style-colors";
 import Axios from "axios"
-import SignInModal from "../signinreg/modal";
+import SignInModal from "../signinregth/modal";
 import history from "common/router/history";
 import Reviews from "./reviews";
 
-class Profile extends React.Component {
+class Profileth extends React.Component {
     state = {
         display: 0,
         currentPhotographer: null,
@@ -129,7 +129,7 @@ class Profile extends React.Component {
                             <Divider/>
                             <div className="mb-3">
                                 <div className="secondary-label mb-2">
-                                    Styles
+                                    สไตล์
                                 </div>
                                 { currentPhotographer.photographer_style.length > 0 ? (
                                     currentPhotographer.photographer_style.map((e,i) => (
@@ -138,12 +138,12 @@ class Profile extends React.Component {
                                         </Tag>
                                     ))
                                 ) : (
-                                    <span className="t-color-light">There are no styles.</span>
+                                    <span className="t-color-light">ไม่มีสไตล์ที่ต้องการ</span>
                                 )}
                             </div>
                             <div className="mb-4">
                                 <div className="secondary-label mb-2">
-                                    Equipment
+                                    อุปกรณ์
                                 </div>
                                 { currentPhotographer.photographer_equipment.length > 0 ? (
                                     currentPhotographer.photographer_equipment.map((e,i) => (
@@ -152,20 +152,20 @@ class Profile extends React.Component {
                                         </div>
                                     ))
                                 ) : (
-                                    <span className="t-color-light">There is no equipment.</span>
+                                    <span className="t-color-light">ไม่มีอุปกรณ์แสดงผล</span>
                                 )}
                             </div>
                             { isAuth && currentClient.profile.user.username === username && (
                                 <React.Fragment>
                                     <Link to="/client/edit-profile">
-                                        <Button type="primary" shape="round">Edit Profile</Button>
+                                        <Button type="primary" shape="round">แก้ไขโปรไฟล์</Button>
                                     </Link>
                                     <br/>
                                 </React.Fragment>
                             )}
                             <div className="profile-tabs mt-4">
                                 <div className="secondary-label mb-2">
-                                    Show
+                                    แสดงผล
                                 </div>
                                 <div 
                                     className={`profile-tabs-item ${display === 0 && 'active'}`}
@@ -177,13 +177,13 @@ class Profile extends React.Component {
                                     className={`profile-tabs-item ${display === 1&& 'active'}`}
                                     onClick={() => this.setState({ display: 1})}
                                 >
-                                    Reviews
+                                    รีวิว
                                 </div>
                                 <div 
                                     className={`profile-tabs-item ${display === 2 && 'active'}`}
                                     onClick={() => this.setState({ display: 2})}
                                 >
-                                    Available Times
+                                    เวลาที่ว่าง
                                 </div>
                             </div>
                         </div>
@@ -197,7 +197,7 @@ class Profile extends React.Component {
                                         </div>
                                     ))
                                 ) : (
-                                    <p className="pa-3" style={{ textAlign: 'center' }}>There are no photos to show in this portfolio.</p>
+                                    <p className="pa-3" style={{ textAlign: 'center' }}>ไม่มีรูปภาพแสดงผลในพอร์ต</p>
                                 )}
                             </div>
                         )}
@@ -235,11 +235,11 @@ class Profile extends React.Component {
                             >
                                 { enableReserve ? (
                                     <React.Fragment>
-                                        <Icon type="close" /> Cancel
+                                        <Icon type="close" /> ยกเลิก
                                     </React.Fragment>
                                 ): (
                                     <React.Fragment>
-                                        <Icon type="book" /> Reserve
+                                        <Icon type="book" /> จอง
                                     </React.Fragment>
                                 )}
                             </Button>
@@ -258,7 +258,7 @@ class Profile extends React.Component {
                                     zIndex: 999
                                 }}
                             >
-                                <Icon type="book" /> Sign In to Reserve
+                                <Icon type="book" /> Sign in เพื่อทำการจอง
                             </Button>
                         }
                         <SignInModal 
@@ -276,4 +276,4 @@ const mapStateToProps = state => ({
     isAuth: state.auth.isAuth
 })
 
-export default connect(mapStateToProps, null)(Profile)
+export default connect(mapStateToProps, null)(Profileth)

@@ -1,19 +1,19 @@
 import React from "react"
 import { Switch, Route, Redirect, NavLink} from "react-router-dom";
-import Edit from "./edit";
-import Password from "./password"
+import Editth from "./edit";
+import Passwordth from "./password"
 import Reservations from "./reservations";
 import EditPortfolio from "./edit-portfolio/"
-import EditProfile from "./edit-profile/"
+import EditProfileth from "./edit-profile/"
 import Calendar from "./calendar";
 import JobDetails from "./job-details";
 import { getCurrentClient } from "common/auth";
 
 import { Menu } from 'antd';
-import Notifications from "./notifications";
+import Notificationsth from "./notifications";
 import Favorites from "./favorites";
 
-class ClientLanding extends React.Component {
+class ClientLandingth extends React.Component {
     render() {
         const currentClient = getCurrentClient();
         const { type } = currentClient;
@@ -32,78 +32,78 @@ class ClientLanding extends React.Component {
                                 <NavLink 
                                     className="ant-menu-item" 
                                     activeClassName="ant-menu-item-selected"
-                                    to="/client/edit-portfolio"
+                                    to="/th/client/edit-portfolio/"
                                 >
-                                        Edit Portfolio
+                                        แก้ไข Portfolio
                                 </NavLink>
                             )}
                             { type === 1 && (
                                 <NavLink 
                                     className="ant-menu-item" 
                                     activeClassName="ant-menu-item-selected"
-                                    to="/client/edit-profile"
+                                    to="/th/client/edit-profile"
                                 >
-                                        Edit Profile
+                                        แก้ไข Profile
                                 </NavLink>
                             )}
                             { type === 2 && (
                                 <NavLink 
                                     className="ant-menu-item" 
                                     activeClassName="ant-menu-item-selected"
-                                    to="/client/favorites"
+                                    to="/th/client/favorites"
                                 >
-                                        Favorite Photographers
+                                        ช่างภาพคนโปรด
                                 </NavLink>
                             )}
                             <NavLink 
                                 className="ant-menu-item" 
                                 activeClassName="ant-menu-item-selected"
-                                to="/client/reservations"
+                                to="/th/client/reservations"
                             >
-                                    My Reservations
+                                    การจองของฉัน
                             </NavLink>
                             <NavLink 
                                 className="ant-menu-item" 
                                 activeClassName="ant-menu-item-selected"
-                                to="/client/calendar"
+                                to="/th/client/calendar"
                             >
-                                My Calendar
+                                ปฏิทินของฉัน
                             </NavLink>
                             <NavLink 
                                 className="ant-menu-item" 
                                 activeClassName="ant-menu-item-selected"
-                                to="/client/notifications"
+                                to="/th/client/notifications"
                             >
-                                All Notifications
+                                การแจ้งเตือนทั้งหมด
                             </NavLink>
                             <NavLink 
                                 className="ant-menu-item" 
                                 activeClassName="ant-menu-item-selected"
-                                to="/client/edit"
+                                to="th/client/edit"
                             >
-                                Personal Information
+                                ข้อมูลส่วนตัวทั่วไป
                             </NavLink>
                         </React.Fragment>
                     )}
                 </Menu>
                 <Switch>
-                    <Route path="/client/edit/password" component={Password} />
-                    <Route path="/client/edit" component={Edit} />
-                    <Route path="/client/reservations/:jobId" component={JobDetails} />
-                    <Route path="/client/reservations" component={Reservations} />
-                    <Route path="/client/calendar" component={Calendar} />
-                    <Route path="/client/favorites" component={Favorites} />
-                    <Route path="/client/notifications" component={Notifications} />
-                    <Route path="/client/edit-portfolio" component={EditPortfolio} />
-                    <Route path="/client/edit-profile" component={EditProfile} />
-                    <Route path="/client" component={RedirectToEdit} />
+                    <Route path="/th/client/edit/password" component={Passwordth} />
+                    <Route path="/th/client/edit" component={Editth} />
+                    <Route path="/th/client/reservations/:jobId" component={JobDetails} />
+                    <Route path="/th/client/reservations" component={Reservations} />
+                    <Route path="/th/client/calendar" component={Calendar} />
+                    <Route path="/th/client/favorites" component={Favorites} />
+                    <Route path="/th/client/notifications" component={Notificationsth} />
+                    <Route path="/th/client/edit-portfolio" component={EditPortfolio} />
+                    <Route path="/th/client/edit-profile" component={EditProfileth} />
+                    <Route path="/th/client" component={RedirectToEdit} />
                 </Switch>
             </div>
         );
     }
 }
 const RedirectToEdit = () => (
-    <Redirect to="/client/edit" />
+    <Redirect to="/th/client/edit" />
 )
 
-export default ClientLanding
+export default ClientLandingth

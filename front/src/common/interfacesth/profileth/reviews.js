@@ -17,7 +17,7 @@ class Reviews extends React.Component {
         const { reviews } = this.state;
         return (
             <div>
-                <h1>Reviews</h1>
+                <h1>รีวิว</h1>
                 { 
                     reviews.length > 0 ? (
                         <div className="photo-grid">{
@@ -27,14 +27,14 @@ class Reviews extends React.Component {
                                         <Rate disabled allowHalf defaultValue={e.rateJob/2} className="mb-2"/>
                                         { e.reviewDetail ? (
                                             <p className="mb-0">{e.reviewDetail}</p>
-                                        ): <p className="mb-0 t-color-light" style={{ fontStyle: 'italic' }}>Rated {e.rateJob/2} out of 5</p>}
+                                        ): <p className="mb-0 t-color-light" style={{ fontStyle: 'italic' }}>ระดับความพึงพอใจ {e.rateJob/2} จากเต็ม 5</p>}
                                     </div>
                                 </div>
                             ))}
                         </div>
                     ) : (
                         <span className="t-color-light d-block pb-3" style={{ fontStyle: 'italic' }}>
-                            No reviews yet.
+                            ยังไม่มีรีวิว
                         </span>
                     )
                 }

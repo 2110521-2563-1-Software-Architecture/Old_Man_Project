@@ -1,6 +1,6 @@
 import React from "react";
 import { getCurrentClient } from "common/auth";
-import history from "../listingth/node_modules/common/router/history";
+import history from "../../../common/router/history";
 import Axios from "axios";
 import { Card as AntCard, Icon, Skeleton, Avatar } from "antd";
 import Card from "../listingth/Card";
@@ -42,7 +42,7 @@ class Favorites extends React.Component {
                         <div className="d-flex align-center justify-center" style={{ height: 400 }}>
                             <div style={{ textAlign: 'center' }}>
                                 <Icon type="heart" style={{ fontSize: 40 }} className="t-color-light mb-3"/>
-                                <p className="t-color-light">You do not have any favorite photographers.</p>
+                                <p className="t-color-light">คุณยังไม่มีช่างภาพที่ถูกใจ</p>
                             </div>
                         </div> 
                     )) : (

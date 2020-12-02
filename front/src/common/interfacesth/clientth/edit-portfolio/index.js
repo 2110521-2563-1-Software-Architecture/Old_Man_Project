@@ -46,14 +46,14 @@ class EditPortfolio extends React.Component {
         return (
             <div>
                 <div className="container mt-4 with-sidebar pl-4">
-                    <h1>Edit Portfolio</h1>
+                    <h1>แก้ไข Portfolio ของคุณ</h1>
                     <p>
-                        Upload and remove photos from your portfolio. <br/>
-                        <small className="t-color-light">Maximum file size: 2MB</small>
+                        อัพโหลดและลบรูปจาก portfolio ของคุณ <br/>
+                        <small className="t-color-light">ระบบรองรับขนาดไฟล์ใหญ่สุด: 2MB</small>
                     </p>
                     { errors && errors.length > 0 ? (
                         errors.map((e,i) => (
-                            <div key={"error" + i} className="error-banner">{e.msg ? e.msg : "An error occured."}</div>
+                            <div key={"error" + i} className="error-banner">{e.msg ? e.msg : "มีข้อผิดพลาดเกิดขึ้น"}</div>
                         ))
                     ) : <span/>}
                     <input type="file" id="inputfile" accept="image/*"
@@ -71,7 +71,7 @@ class EditPortfolio extends React.Component {
                             zIndex: 999
                         }}
                     >
-                        <Icon type="upload" /> Upload
+                        <Icon type="upload" /> อัพโหลด
                     </Button>
                     <br/>
                 </div>

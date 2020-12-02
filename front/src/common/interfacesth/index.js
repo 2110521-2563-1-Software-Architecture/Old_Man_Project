@@ -7,9 +7,9 @@ class Landing extends React.Component {
         return (
             <div className="container mt-4">
                 <h1>ยินดีต้อนรับ!</h1>
-                <p>This is the first page that the user is going to see</p>
+                <p>นี่คือหน้าเพจแรกที่คุณ้ข่้ามาเห็น</p>
                 <Link to="/profile">
-                    <Button type="primary">My Profile</Button>
+                    <Button type="primary">โปรไฟล์ของฉัน</Button>
                 </Link>
             </div>
         )

@@ -110,10 +110,10 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'romeo-database',
+        'NAME': 'oldman',
         'USER': 'root',
-        'PASSWORD': '1834',
-        'HOST': 'db',
+        'PASSWORD': 'w1o2r3l4d5',
+        'HOST': '',
         'PORT': '3306',
     }
 }

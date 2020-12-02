@@ -5,7 +5,7 @@ import { formatDashedDate, formatDate } from "common/date";
 import { timeLabels } from "logic/Calendar"
 import moment from "moment";
 import Axios from "axios";
-import history from "../listingth/node_modules/common/router/history";
+import history from "common/router/history";
 import { styleLabels } from "logic/Styles";
 
 function hasErrors(fieldsError) {
@@ -120,48 +120,48 @@ class ReserveModal extends React.Component {
             >
                 { currentPhotographer && (
                     <div className="mb-3">
-                        <b>Photographer's Name: {currentPhotographer.profile.user.first_name} {currentPhotographer.profile.user.last_name}</b>
+                        <b>รายชื่อช่างภาพ: {currentPhotographer.profile.user.first_name} {currentPhotographer.profile.user.last_name}</b>
                     </div>
                 )}
                 { currentClient && (
                     <Form>
-                        <label>Job Title</label>
+                        <label>ชื่องาน</label>
                         <Form.Item 
                             validateStatus={jobTitleError ? 'error' : ''} help={jobTitleError || ''}
                             className="mb-2"
                         >
                             {getFieldDecorator('jobTitle', {
                                 rules: [
-                                    { required: true,message: 'This field is required.' },
+                                    { required: true,message: 'โปรดใส่ข้อมูลให้ครบ' },
                                 ],
                             })(
                                 <Input
-                                    placeholder="Job Title"
+                                    placeholder="ชื่องาน"
                                     type="text"
                                 />,
                             )}
                         </Form.Item>
-                        <label>Job Location</label>
+                        <label>สถานที่ทำงาน</label>
                         <Form.Item 
                             validateStatus={jobLocationError ? 'error' : ''} help={jobLocationError || ''}
                             className="mb-2"
                         >
                             {getFieldDecorator('jobLocation', {
                                 rules: [
-                                    { required: true,message: 'This field is required.' },
+                                    { required: true,message: 'โปรดใส่ข้อมูลให้ครบ' },
                                 ],
                             })(
                                 <Input
-                                    placeholder="Job Location"
+                                    placeholder="สถานที่ทำงาน"
                                     type="text"
                                 />,
                             )}
                         </Form.Item>
                         { currentPhotographer.photographer_style.length > 0 && (
                             <React.Fragment>
-                                <label>Job Style</label><br/>
+                                <label>สไตล์ของงาน</label><br/>
                                 <b className="d-block mb-1">
-                                    Selected Style:{' '}
+                                    เลือกสไตล์:{' '}
                                     {(style && style !== "") ? styleLabels[style] : "None"}
                                 </b>
                                 <Dropdown overlay={() => (
@@ -184,27 +184,27 @@ class ReserveModal extends React.Component {
                                     trigger={['click']}
                                 >
                                     <Button type="primary">
-                                        <span>Select One</span>
+                                        <span>เลือกสไตล์</span>
                                         <Icon type="down" />
                                     </Button>
                                 </Dropdown>
                             </React.Fragment>
                         )}
                         <div className="pb-3"/>
-                        <label>Job Description</label>
+                        <label>รายละเอียดงาน</label>
                         <Form.Item className="mt-1">
                             {getFieldDecorator('jobDescription')(
                                 <Input.TextArea
-                                    placeholder="Job Description"
+                                    placeholder="รายละเอียดงาน"
                                     type="text"
                                 />
                             )}
                         </Form.Item>
-                        <label>Special Requirements</label>
+                        <label>ความต้องการเพิ่มเติม</label>
                         <Form.Item className="mt-1">
                             {getFieldDecorator('jobSpecialReq')(
                                 <Input
-                                    placeholder="Special Requirements"
+                                    placeholder="ความต้องการเพิ่มเติม"
                                     type="text"
                                 />
                             )}
@@ -216,21 +216,21 @@ class ReserveModal extends React.Component {
                                     {formatDate(e.photoshoot_date)} ({e.job_avail_time.avail_date}),{' '} 
                                     {timeLabels[e.job_avail_time.avail_time]}
                                 </div>
-                                <div><b>Price: {e.job_avail_time.photographer_price}THB</b></div>
+                                <div><b>ราคา: {e.job_avail_time.photographer_price}บาท</b></div>
                             </div>
                         ))}
                         <div className="pb-3"/>
                         <label className="pb-3 d-block">
-                            Job Start Date: <b>{formatDate(this.state.jobStartDate)}</b>
+                            เวลาที่งานเริ่ม: <b>{formatDate(this.state.jobStartDate)}</b>
                         </label>
-                        <label>Job Expected Complete Date</label>
+                        <label>วันที่คาดว่างานจะเสร็จสิ้น</label>
                         <Form.Item
                             validateStatus={(jobEndDateError || dateError) ? 'error' : ''} 
-                            help={dateError ? "Job's end date cannot be before the last day of the job." : (jobEndDateError || '')}
+                            help={dateError ? "วันที่สิ้นสุดของงานต้องไม่อยู่ก่อนวันสุดท้ายของงาน" : (jobEndDateError || '')}
                         >
                             {getFieldDecorator('jobEndDate', {
                                 rules: [
-                                    { required: true, message: 'This field is required.' },
+                                    { required: true, message: 'โปรดใส่ข้อมูลให้ครบ' },
                                 ],
                             })(
                                 <DatePicker 
@@ -239,14 +239,14 @@ class ReserveModal extends React.Component {
                                 />
                             )}
                         </Form.Item>
-                        <h3 className="mb-2 t-color-primary">Total Price: {this.calculateTotalPrice()}THB</h3>
+                        <h3 className="mb-2 t-color-primary">ราคารวมทั้งหมด: {this.calculateTotalPrice()}บาท</h3>
                         {/* Round to 2 decimal places */}
                         <h4 className="mb-2 t-color-light">Deposit: {Math.round(((this.calculateTotalPrice() * 30/100) *100) /100 )}THB</h4>
-                        <small>You will not have to pay until the photographer accepts your reservation.</small>
+                        <small>กรุณาอย่างจ่ายเงินจนกว่าช่างภาพจะรับการจองของคุณ</small>
                         <div className="pb-3"/>
                         { (styleError && style === "") && (
                             <div className="error-banner">
-                                <b>Please select a style.</b>
+                                <b>โปรดเลือกสไตล์ของคุณ</b>
                             </div>
                         ) }
                         <Form.Item className="mb-0">
@@ -256,7 +256,7 @@ class ReserveModal extends React.Component {
                                 className="mr-2"
                                 htmlType="submit" 
                                 disabled={hasErrors(getFieldsError()) || dateError}
-                            >Confirm Reservation</Button>
+                            >ยืนยันการจอง</Button>
                         </Form.Item>
                     </Form>
                 )}

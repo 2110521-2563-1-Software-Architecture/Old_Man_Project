@@ -1,16 +1,16 @@
 import React from 'react';
-import history from "../../common/router/history";
+import history from "../../../common/router/history";
 import { Button, Form, Input } from "antd";
 import { Link } from 'react-router-dom';
 import { animateScroll as scroll } from 'react-scroll'
 import Axios from "axios";
-import { getCurrentClientInfo } from "../../common/auth";
+import { getCurrentClientInfo } from "../../../common/auth";
 
 function hasErrors(fieldsError) {
     return Object.keys(fieldsError).some(field => fieldsError[field]);
 }
 
-class Edit extends React.Component {
+class Editth extends React.Component {
     componentDidMount = async () => {
         const currentClient = await getCurrentClientInfo();
         this.setState({ currentClient })
@@ -107,7 +107,7 @@ class Edit extends React.Component {
     
             return (
                 <div className="container mt-4 with-sidebar pl-4">
-                    <h1>Personal Information</h1>
+                    <h1>ข้อมูลส่วนตัว</h1>
                     { success && 
                         <React.Fragment>
                             <div className="success-banner">
@@ -125,7 +125,7 @@ class Edit extends React.Component {
                         </React.Fragment>
                     }
                     <Form>
-                        <h3>Account Information</h3>
+                        <h3>ข้อมูลทั่วไป</h3>
                         <label>Email</label>
                         <Form.Item 
                             validateStatus={emailError ? 'error' : ''} 
@@ -144,16 +144,16 @@ class Edit extends React.Component {
                             )}
                         </Form.Item>
                         <Form.Item>
-                            <Link to="/client/edit/password">
+                            <Link to="/th/client/edit/password">
                                 <Button 
                                     type="primary" 
                                     className="mr-2"
                                     htmlType="button" 
-                                >Edit Password</Button>
+                                >แก้ไขพาสเวิด</Button>
                             </Link>
                         </Form.Item>
-                        <h3>Contact Information</h3>
-                        <label>Phone Number</label>
+                        <h3>ช่องทางการติดต่อ</h3>
+                        <label>เบอร์โทรศัพท์</label>
                         <Form.Item 
                             validateStatus={phoneError ? 'error' : ''} 
                             help={phoneError || ''}
@@ -170,10 +170,10 @@ class Edit extends React.Component {
                                 />,
                             )}
                         </Form.Item>
-                        <h3>Personal Information</h3>
+                        <h3>ข้อมูลส่วนบุคคล</h3>
                         <div className="d-flex">
                             <div className="mr-1 full-width">
-                                <label>First Name</label>
+                                <label>ชื่อ</label>
                                 <Form.Item 
                                     validateStatus={firstNameError ? 'error' : ''} 
                                     help={firstNameError || ''}
@@ -181,46 +181,46 @@ class Edit extends React.Component {
                                 >
                                     {getFieldDecorator('firstName', {
                                         rules: [
-                                            { required: true,message: 'This field is required.' },
+                                            { required: true,message: 'โปรดใส่ข้อมูล' },
                                         ],
                                         initialValue: firstName
                                     })(
                                         <Input
-                                            placeholder="First Name"
+                                            placeholder="ชื่อ"
                                             type="text"
                                         />,
                                     )}
                                 </Form.Item>
                             </div>
                             <div className="ml-1 full-width">
-                                <label>Last Name</label>    
+                                <label>นามสกุล</label>    
                                 <Form.Item 
-                                    validateStatus={lastNameError ? 'error' : ''} 
+                                    validateStatus={lastNameError ? 'เกิดข้อผิดพลาด' : ''} 
                                     help={lastNameError || ''}
                                     className="full-width"
                                 >
-                                    {getFieldDecorator('lastName', {
+                                    {getFieldDecorator('นามสกุล', {
                                         rules: [
-                                            { required: true,message: 'This field is required.' },
+                                            { required: true,message: 'โปรดใส่ข้อมูล' },
                                         ],
                                         initialValue: lastName
                                     })(
                                         <Input
-                                            placeholder="Last Name"
+                                            placeholder="นามสกุล"
                                             type="text"
                                         />,
                                     )}
                                 </Form.Item>
                             </div>
                         </div>
-                        <label>Social Security Number</label>
+                        <label>เลขประจำตัวประชาชน</label>
                         <Form.Item 
-                            validateStatus={(ssnError || ssnLengthError) ? 'error' : ''} 
-                            help={ssnError || (ssnLengthError && "SSN must contain exactly 13 numbers.") || ''}
+                            validateStatus={(ssnError || ssnLengthError) ? 'เกิดข้อผิลพลาด' : ''} 
+                            help={ssnError || (ssnLengthError && "SSN ควรจะยาว 13 ตัวอักษร") || ''}
                         >
                             {getFieldDecorator('ssn', {
                                 rules: [
-                                    { required: true, message: 'This field is required.' }
+                                    { required: true, message: 'โปรดใส่ข้อมูล' }
                                 ],
                                 initialValue: ssn
                             })(
@@ -231,10 +231,10 @@ class Edit extends React.Component {
                                 />,
                             )}
                         </Form.Item>
-                        <h3>Payment Information</h3>
+                        <h3>ข้อมูลการจ่ายเงิน</h3>
                         <div className="d-flex">
                             <div className="mr-1 full-width">
-                                <label>Bank Account Number</label>
+                                <label>เลขบัญชี</label>
                                 <Form.Item 
                                     validateStatus={bankAccountNumberError ? 'error' : ''} 
                                     help={bankAccountNumberError || ''}
@@ -242,19 +242,19 @@ class Edit extends React.Component {
                                 >
                                     {getFieldDecorator('bankAccountNumber', {
                                         rules: [
-                                            { required: true,message: 'This field is required.' },
+                                            { required: true,message: 'โปรดใส่ข้อมูล' },
                                         ],
                                         initialValue: bankAccountNumber
                                     })(
                                         <Input
-                                            placeholder="Account Number"
+                                            placeholder="เลขบัญชี"
                                             type="text"
                                         />,
                                     )}
                                 </Form.Item>
                             </div>
                             <div className="ml-1 full-width">
-                                <label>Bank Name</label>
+                                <label>ชื่อธนาคาร</label>
                                 <Form.Item 
                                     validateStatus={bankNameError ? 'error' : ''} 
                                     help={bankNameError || ''}
@@ -262,12 +262,12 @@ class Edit extends React.Component {
                                 >
                                     {getFieldDecorator('bankName', {
                                         rules: [
-                                            { required: true,message: 'This field is required.' },
+                                            { required: true,message: 'โปรดใส่ข้อมูล' },
                                         ],
                                         initialValue: bankName
                                     })(
                                         <Input
-                                            placeholder="Bank Name"
+                                            placeholder="ชื่อธนาคาร"
                                             type="text"
                                         />,
                                     )}
@@ -275,19 +275,19 @@ class Edit extends React.Component {
                             </div>
                         </div>
                         <div className="mr-1">
-                            <label>Bank Account Name</label>
+                            <label>ชื่อบัญชี</label>
                             <Form.Item 
                                 validateStatus={bankAccountNameError ? 'error' : ''} 
                                 help={bankAccountNameError || ''}
                             >
                                 {getFieldDecorator('bankAccountName', {
                                     rules: [
-                                        { required: true,message: 'This field is required.' },
+                                        { required: true,message: 'โปรดใส่ข้อมูล' },
                                     ],
                                     initialValue: bankAccountName
                                 })(
                                     <Input
-                                        placeholder="Account Number"
+                                        placeholder="เลขบัญชี"
                                         type="text"
                                     />,
                                 )}
@@ -301,7 +301,7 @@ class Edit extends React.Component {
                                     className="mr-2"
                                     htmlType="submit" 
                                     disabled={hasErrors(getFieldsError())}
-                                >Confirm Edits</Button>
+                                >คอนเฟิมการแก้ไข</Button>
                                 <Button 
                                     type="secondary" 
                                     onClick={() => {
@@ -310,7 +310,7 @@ class Edit extends React.Component {
                                     }}
                                     className="mr-2"
                                     htmlType="button" 
-                                >Cancel</Button>
+                                >ยกเลิก</Button>
                             </div>
                         </Form.Item>
                     </Form>
@@ -322,6 +322,6 @@ class Edit extends React.Component {
     }
 }
 
-const WrappedEditForm = Form.create({ name: 'edit_profile' })(Edit);
+const WrappedEditForm = Form.create({ name: 'edit_profile' })(Editth);
 
 export default WrappedEditForm;
