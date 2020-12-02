@@ -209,6 +209,7 @@ class Nav extends React.Component {
                               this.setState({
                                 showEng: true,
                               });
+                              console.log(showEng)
                             }}
                           >
                             English
@@ -222,6 +223,7 @@ class Nav extends React.Component {
                               this.setState({
                                 showEng: false,
                               });
+                              console.log(showEng)
                             }}
                           >
                             Thai
@@ -279,6 +281,7 @@ class Nav extends React.Component {
                             this.setState({
                               showEng: true,
                             });
+                            console.log(showEng)
                           }}
                         >
                           English
@@ -292,6 +295,7 @@ class Nav extends React.Component {
                             this.setState({
                               showEng: false,
                             });
+                            console.log(showEng)
                           }}
                         >
                           Thai
