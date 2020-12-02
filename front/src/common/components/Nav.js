@@ -128,7 +128,7 @@ class Nav extends React.Component {
                 <Dropdown
                   className="mr-2"
                   overlay={() =>
-                    currentClient.type === 1 ? (
+                    currentClient.type === 1 && showEng === true ? (
                       <Menu>
                         <Menu.Item key="0">
                           <Link to={"/profile/" + currentClient.username}>
@@ -148,6 +148,7 @@ class Nav extends React.Component {
                             Edit Portfolio
                           </Link>
                         </Menu.Item>
+
                         <Menu.Item key="pho2">
                           <Link to="/client/edit-profile">Edit Profile</Link>
                         </Menu.Item>
@@ -158,7 +159,38 @@ class Nav extends React.Component {
                           <span className="t-color-error">Sign Out</span>
                         </Menu.Item>
                       </Menu>
-                    ) : (
+                    ) : currentClient.type === 1 && showEng === false ? (
+                      <Menu>
+                        <Menu.Item key="0">
+                          <Link to={"/profile/" + currentClient.username}>
+                            <Icon type="user" className="mr-2" />
+                            <b>{currentClient.username}</b>
+                          </Link>
+                        </Menu.Item>
+                        <Menu.Divider />
+                        <Menu.Item key="pho0">
+                          <Link to="/client/reservations">การจองของฉัน</Link>
+                        </Menu.Item>
+                        <Menu.Item key="pho5">
+                          <Link to="/client/calendar">ปฏิทิน</Link>
+                        </Menu.Item>
+                        <Menu.Item key="pho1">
+                          <Link to="/client/edit-portfolio">
+                            แก้ไขพอร์ทโฟลิโอ
+                          </Link>
+                        </Menu.Item>
+
+                        <Menu.Item key="pho2">
+                          <Link to="/client/edit-profile">แก้ไขโปรไฟล์</Link>
+                        </Menu.Item>
+                        <Menu.Item key="pho3">
+                          <Link to="/client/edit">ข้อมูลส่วนตัว</Link>
+                        </Menu.Item>
+                        <Menu.Item key="pho4" onClick={() => signOut(history)}>
+                          <span className="t-color-error">ออกจากระบบ</span>
+                        </Menu.Item>
+                      </Menu>
+                    ) : currentClient.type === 0 && showEng === true ? (
                       <Menu>
                         <Menu.Item key="0" style={{ pointerEvents: "none" }}>
                           <Icon type="user" className="mr-2" />
@@ -170,6 +202,7 @@ class Nav extends React.Component {
                             Favorite Photographers
                           </Link>
                         </Menu.Item>
+
                         <Menu.Item key="cus1">
                           <Link to="/client/reservations">My Reservations</Link>
                         </Menu.Item>
@@ -181,6 +214,30 @@ class Nav extends React.Component {
                         </Menu.Item>
                         <Menu.Item key="cus3" onClick={() => signOut(history)}>
                           <span className="t-color-error">Sign Out</span>
+                        </Menu.Item>
+                      </Menu>
+                    ) : (
+                      <Menu>
+                        <Menu.Item key="0" style={{ pointerEvents: "none" }}>
+                          <Icon type="user" className="mr-2" />
+                          <b>{currentClient.username}</b>
+                        </Menu.Item>
+                        <Menu.Divider />
+                        <Menu.Item key="cus6">
+                          <Link to="/client/favorites">ช่างภาพคนโปรดดดดด</Link>
+                        </Menu.Item>
+
+                        <Menu.Item key="cus1">
+                          <Link to="/client/reservations">การจองของฉัน</Link>
+                        </Menu.Item>
+                        <Menu.Item key="cus5">
+                          <Link to="/client/calendar">ปฏิทิน</Link>
+                        </Menu.Item>
+                        <Menu.Item key="cus2">
+                          <Link to="/client/edit">ข้อมูลส่วนตัว</Link>
+                        </Menu.Item>
+                        <Menu.Item key="cus3" onClick={() => signOut(history)}>
+                          <span className="t-color-error">ออกจากระบบ</span>
                         </Menu.Item>
                       </Menu>
                     )
@@ -209,7 +266,7 @@ class Nav extends React.Component {
                               this.setState({
                                 showEng: true,
                               });
-                              console.log(showEng)
+                              console.log(showEng);
                             }}
                           >
                             English
@@ -223,7 +280,7 @@ class Nav extends React.Component {
                               this.setState({
                                 showEng: false,
                               });
-                              console.log(showEng)
+                              console.log(showEng);
                             }}
                           >
                             Thai
@@ -281,7 +338,7 @@ class Nav extends React.Component {
                             this.setState({
                               showEng: true,
                             });
-                            console.log(showEng)
+                            console.log(showEng);
                           }}
                         >
                           English
@@ -295,7 +352,7 @@ class Nav extends React.Component {
                             this.setState({
                               showEng: false,
                             });
-                            console.log(showEng)
+                            console.log(showEng);
                           }}
                         >
                           Thai
