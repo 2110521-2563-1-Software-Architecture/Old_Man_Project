@@ -48,8 +48,8 @@ class Nav extends React.Component {
           style={{ maxWidth: "initial" }}
         >
           <Link to="/">
-            <div className="logo">
-              <img src={logo} alt="" />
+            <div className="headtext">
+              Photo Matcher
             </div>
           </Link>
           {isAuth && currentClient ? (

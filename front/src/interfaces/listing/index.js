@@ -223,14 +223,14 @@ class Listing extends React.Component {
             <div style={{ marginTop: -64 }}>
                 <Parallax
                     blur={{ min: -15, max: 15 }}
-                    bgImage={require('assets/banner-background.jpg')}
+                    bgImage={require('assets/banner-background2.jpg')}
                     bgImageAlt="photobg"
                     strength={300}
                     className="full-width t-color-white"
                 >
                     <div className="container pb-5 pt-5 d-flex align-center" style={{ height: 500 }}>
                         <div className="hero-text">
-                            <div className="header">Photo Bro</div>
+                            <div className="header">Photo Matcher</div>
                             <div className="subheader">Find your photographer</div>
                         </div>
                     </div>
