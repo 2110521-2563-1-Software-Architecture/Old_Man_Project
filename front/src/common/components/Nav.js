@@ -200,36 +200,24 @@ class Nav extends React.Component {
                   className="mr-6"
                   overlay={() => (
                     <Menu>
-                      <label>Language</label>
-                      <Menu.Divider />
-                      <Menu.Item>
-                        <Link to="/">
-                          <Button
-                            onClick={() => {
-                              this.setState({
-                                showEng: true,
-                              });
-                              console.log(showEng);
-                            }}
-                          >
-                            English
-                          </Button>
-                        </Link>
-                      </Menu.Item>
-                      <Menu.Item>
-                        <Link to="/th">
-                          <Button
-                            onClick={() => {
-                              this.setState({
-                                showEng: false,
-                              });
-                              console.log(showEng);
-                            }}
-                          >
-                            Thai
-                          </Button>
-                        </Link>
-                      </Menu.Item>
+                        <label>Language</label>
+                        <Menu.Divider />
+                        <Menu.Item onClick={() => {
+                                this.setState({
+                                showEng: true
+                                });
+                                console.log(showEng);
+                            }}>
+                        <Link to="/">English</Link>
+                        </Menu.Item>
+                        <Menu.Item onClick={() => {
+                                this.setState({
+                                showEng: false
+                                });
+                                console.log(showEng);
+                            }}>
+                        <Link to={showEng ? ("/th"+ window.location.pathname) : (window.location.pathname)}>Thai</Link>
+                        </Menu.Item>
                     </Menu>
                   )}
                   trigger={["click"]}
@@ -271,38 +259,26 @@ class Nav extends React.Component {
               <Dropdown
                 className="mr-6"
                 overlay={() => (
-                  <Menu>
-                    <label>Language</label>
-                    <Menu.Divider />
-                    <Menu.Item>
-                      <Link to="/">
-                        <Button
-                          onClick={() => {
-                            this.setState({
-                              showEng: true,
-                            });
-                            console.log(showEng);
-                          }}
-                        >
-                          English
-                        </Button>
-                      </Link>
-                    </Menu.Item>
-                    <Menu.Item>
-                      <Link to="/th">
-                        <Button
-                          onClick={() => {
-                            this.setState({
-                              showEng: false,
-                            });
-                            console.log(showEng);
-                          }}
-                        >
-                          Thai
-                        </Button>
-                      </Link>
-                    </Menu.Item>
-                  </Menu>
+                    <Menu>
+                        <label>Language</label>
+                        <Menu.Divider />
+                        <Menu.Item onClick={() => {
+                                this.setState({
+                                showEng: true
+                                });
+                                console.log(showEng);
+                            }}>
+                        <Link to="/">English</Link>
+                        </Menu.Item>
+                        <Menu.Item onClick={() => {
+                                this.setState({
+                                showEng: false
+                                });
+                                console.log(showEng);
+                            }}>
+                        <Link to={showEng ? ("/th"+ window.location.pathname) : (window.location.pathname)}>Thai</Link>
+                        </Menu.Item>
+                    </Menu>
                 )}
                 trigger={["click"]}
               >

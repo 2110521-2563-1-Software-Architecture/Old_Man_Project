@@ -6,16 +6,15 @@ import history from "./history";
 import { setAuth } from "common/actions/auth";
 import { connect } from "react-redux";
 import Profile from "interfaces/profile";
+import Profileth from "../interfacesth/profileth"
 import Listing from "interfaces/listing"
 import Listingth from "../interfacesth/listingth"
-import SignUpth from "../interfacesth/signinregth/SignUpth"
-import Profileth from "../interfacesth/profileth"
-import ClientLandingth from "../interfacesth/clientth"
 import ClientLanding from "interfaces/client";
+import ClientLandingth from "../interfacesth/clientth"
 import SignUp from "interfaces/signinreg/SignUp";
+import SignUpth from "../interfacesth/signinregth/SignUpth"
 import Error from "../components/Error";
 import NotFound from "../components/NotFound";
-//import SignUpth from "../interfacesth/signinregth/SignUpth";
 
 
 class AppRouter extends React.Component {
