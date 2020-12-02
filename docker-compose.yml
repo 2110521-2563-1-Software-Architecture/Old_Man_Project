@@ -1,14 +1,14 @@
 version: '3.5'
 services:
   romeo-front:
-    container_name: romeo-front
+    container_name: front
     build:
-      context: ./romeo-front
+      context: ./front
       dockerfile: Dockerfile
     volumes:
-      - ./:/usr/src/romeo-front
-      - /usr/src/romeo-front/node_modules
-      - /usr/src/romeo-front/build
+      - ./:/usr/src/front
+      - /usr/src/front/node_modules
+      - /usr/src/front/build
     ports:
       - '80:5000'
     environment:
@@ -27,11 +27,11 @@ services:
       - MYSQL_PASSWORD=1834
       - MYSQL_ROOT_PASSWORD=1834
   romeo-back:
-    container_name: romeo-back
-    build: ./romeo-back
-    command: python ./romeo-back/manage.py runserver 0.0.0.0:8000
+    container_name: backend
+    build: ./backend
+    command: python ./backend/manage.py runserver 0.0.0.0:8000
     volumes:
-      - .:/usr/src/romeo-back
+      - .:/usr/src/backend
     ports:
       - "8000:8000"
     depends_on:
