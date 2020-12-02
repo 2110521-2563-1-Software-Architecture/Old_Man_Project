@@ -1,0 +1,38 @@
+version: '3.5'
+services:
+  romeo-front:
+    container_name: romeo-front
+    build:
+      context: ./romeo-front
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/usr/src/romeo-front
+      - /usr/src/romeo-front/node_modules
+      - /usr/src/romeo-front/build
+    ports:
+      - '80:5000'
+    environment:
+      - NODE_ENV=${NODE_ENV}
+      - REACT_APP_ACCESS_KEY_ID=${REACT_APP_ACCESS_KEY_ID}
+      - REACT_APP_ACCESS_SECRET_KEY=${REACT_APP_ACCESS_SECRET_KEY}
+      - REACT_APP_OMISE_PUBLIC_KEY=${REACT_APP_OMISE_PUBLIC_KEY}
+      - REACT_APP_OMISE_SECRET_KEY=${REACT_APP_OMISE_SECRET_KEY}
+  db:
+    image: mysql:5.7
+    ports:
+      - '3306:3306'
+    environment:
+      - MYSQL_HOST=localhost
+      - MYSQL_DATABASE=romeo-database
+      - MYSQL_PASSWORD=1834
+      - MYSQL_ROOT_PASSWORD=1834
+  romeo-back:
+    container_name: romeo-back
+    build: ./romeo-back
+    command: python ./romeo-back/manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/usr/src/romeo-back
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
