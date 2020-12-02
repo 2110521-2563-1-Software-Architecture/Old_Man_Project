@@ -128,7 +128,7 @@ class Nav extends React.Component {
                 <Dropdown
                   className="mr-2"
                   overlay={() =>
-                    currentClient.type === 1 && showEng === true ? (
+                    currentClient.type === 1 ? (
                       <Menu>
                         <Menu.Item key="0">
                           <Link to={"/profile/" + currentClient.username}>
@@ -159,63 +159,6 @@ class Nav extends React.Component {
                           <span className="t-color-error">Sign Out</span>
                         </Menu.Item>
                       </Menu>
-                    ) : currentClient.type === 1 && showEng === false ? (
-                      <Menu>
-                        <Menu.Item key="0">
-                          <Link to={"/profile/" + currentClient.username}>
-                            <Icon type="user" className="mr-2" />
-                            <b>{currentClient.username}</b>
-                          </Link>
-                        </Menu.Item>
-                        <Menu.Divider />
-                        <Menu.Item key="pho0">
-                          <Link to="/client/reservations">การจองของฉัน</Link>
-                        </Menu.Item>
-                        <Menu.Item key="pho5">
-                          <Link to="/client/calendar">ปฏิทิน</Link>
-                        </Menu.Item>
-                        <Menu.Item key="pho1">
-                          <Link to="/client/edit-portfolio">
-                            แก้ไขพอร์ทโฟลิโอ
-                          </Link>
-                        </Menu.Item>
-
-                        <Menu.Item key="pho2">
-                          <Link to="/client/edit-profile">แก้ไขโปรไฟล์</Link>
-                        </Menu.Item>
-                        <Menu.Item key="pho3">
-                          <Link to="/client/edit">ข้อมูลส่วนตัว</Link>
-                        </Menu.Item>
-                        <Menu.Item key="pho4" onClick={() => signOut(history)}>
-                          <span className="t-color-error">ออกจากระบบ</span>
-                        </Menu.Item>
-                      </Menu>
-                    ) : currentClient.type === 0 && showEng === true ? (
-                      <Menu>
-                        <Menu.Item key="0" style={{ pointerEvents: "none" }}>
-                          <Icon type="user" className="mr-2" />
-                          <b>{currentClient.username}</b>
-                        </Menu.Item>
-                        <Menu.Divider />
-                        <Menu.Item key="cus6">
-                          <Link to="/client/favorites">
-                            Favorite Photographers
-                          </Link>
-                        </Menu.Item>
-
-                        <Menu.Item key="cus1">
-                          <Link to="/client/reservations">My Reservations</Link>
-                        </Menu.Item>
-                        <Menu.Item key="cus5">
-                          <Link to="/client/calendar">My Calendar</Link>
-                        </Menu.Item>
-                        <Menu.Item key="cus2">
-                          <Link to="/client/edit">Personal Information</Link>
-                        </Menu.Item>
-                        <Menu.Item key="cus3" onClick={() => signOut(history)}>
-                          <span className="t-color-error">Sign Out</span>
-                        </Menu.Item>
-                      </Menu>
                     ) : (
                       <Menu>
                         <Menu.Item key="0" style={{ pointerEvents: "none" }}>
@@ -224,20 +167,20 @@ class Nav extends React.Component {
                         </Menu.Item>
                         <Menu.Divider />
                         <Menu.Item key="cus6">
-                          <Link to="/client/favorites">ช่างภาพคนโปรดดดดด</Link>
+                          <Link to="/client/favorites">Favorite Photographer</Link>
                         </Menu.Item>
 
                         <Menu.Item key="cus1">
-                          <Link to="/client/reservations">การจองของฉัน</Link>
+                          <Link to="/client/reservations">My Reservation</Link>
                         </Menu.Item>
                         <Menu.Item key="cus5">
-                          <Link to="/client/calendar">ปฏิทิน</Link>
+                          <Link to="/client/calendar">Calendar</Link>
                         </Menu.Item>
                         <Menu.Item key="cus2">
-                          <Link to="/client/edit">ข้อมูลส่วนตัว</Link>
+                          <Link to="/client/edit">Personal Information</Link>
                         </Menu.Item>
                         <Menu.Item key="cus3" onClick={() => signOut(history)}>
-                          <span className="t-color-error">ออกจากระบบ</span>
+                          <span className="t-color-error">Sign Out</span>
                         </Menu.Item>
                       </Menu>
                     )
